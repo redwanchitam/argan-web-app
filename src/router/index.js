@@ -8,6 +8,22 @@ const routes = [
     component: Home
   },
   {
+    path: "/products",
+    name: "products",
+    component: () =>
+      import(/* webpackChunkName: "Products" */ "../views/Products.vue")
+  },
+  {
+    path: "/products/:id",
+    name: "productDetails-with-id",
+    component: () =>
+      import(
+        /* webpackChunkName: "ProductDetails" */
+        "../views/ProductDetails.vue"
+      ),
+    props: true
+  },
+  {
     path: "/about",
     name: "About",
     // route level code-splitting
