@@ -10,9 +10,9 @@ export default createStore({
         price: 13,
         rating: "80",
         category: "category 1",
-        mainOrgan: ["argan"],
-        delivery: ["morroco", "china", "england"],
-        description: "a"
+        mainOrgans: ["argan"],
+        deliveries: ["morroco", "usa", "germany"],
+        description: "Documentation and examples for opting images into responsive behavior (so they never become larger than their parent elements) and add lightweight styles to them—all via classes."
       },
       {
         id: 2,
@@ -21,9 +21,9 @@ export default createStore({
         price: 17,
         rating: "80",
         category: "category 2",
-        mainOrgan: ["argan", "Almonds"],
-        delivery: ["morroco", "china", "england"],
-        description: "a"
+        mainOrgans: ["argan", "Almonds"],
+        deliveries: ["morroco", "china", "england"],
+        description: "Documentation and examples for opting images into responsive behavior (so they never become larger than their parent elements) and add lightweight styles to them—all via classes."
       },
       {
         id: 3,
@@ -32,9 +32,9 @@ export default createStore({
         price: 15,
         rating: "80",
         category: "category 3",
-        mainOrgan: ["olive"],
-        delivery: ["morroco", "china", "england"],
-        description: "a"
+        mainOrgans: ["olive"],
+        deliveries: ["morroco", "mexico", "middle east"],
+        description: "Documentation and examples for opting images into responsive behavior (so they never become larger than their parent elements) and add lightweight styles to them—all via classes."
       }
     ],
     categories: [

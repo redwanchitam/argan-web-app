@@ -13,7 +13,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #171E0F;
 }
 #nav {
   padding: 30px;
@@ -51,14 +51,27 @@
   // justify-content: center;
 }
 .productImg {
+  max-width: 100%;
+  height: auto;
   border-radius: calc(0.7rem - 1px);
 }
 .activeProductImg {
-  width: 100%;
-  height: auto;
+  max-width: 100%;
+  height: 25rem;
+  overflow: hidden;
+}
+.sleepingProductImgsBox {
+  padding-top: 1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 .sleepingProductImg {
-  width: 5rem;
-  height: auto;
+  max-width: 25%;
+  height: 5rem;
+  overflow: hidden;
+}
+.descriptionBox {
+  justify-self: start;
+  padding: 1rem;
 }
 </style>

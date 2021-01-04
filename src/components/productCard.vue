@@ -21,7 +21,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .productCard {
-  background-color: lavender;
+  background-color: white;
   border: 1px solid orange;
   border-radius: calc(0.7rem - 1px);
 }
