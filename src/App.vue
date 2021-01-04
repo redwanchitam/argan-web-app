@@ -1,15 +1,18 @@
 <template>
   <div id="nav">
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/products">Products</router-link>
+    <router-link to="/products">Products</router-link> |
+    <router-link to="/about">About</router-link>
   </div>
   <router-view />
 </template>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?&family=Gruppo&display=swap');
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Gruppo', cursive;
+  // font-family: 'Redressed', cursive;
+  // font-family: 'Marck Script', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -73,5 +76,18 @@
 .descriptionBox {
   justify-self: start;
   padding: 1rem;
+}
+.tagBtn {
+  border-radius: calc(0.7rem - 1px);
+}
+.tagBtnPrimary {
+  border: 1px solid white;
+  background-color: #DD7150;
+  color: white;
+}
+.tagBtnSecondary {
+  border: 1px solid #DD7150;
+  background-color:white;
+  color: #DD7150;
 }
 </style>
