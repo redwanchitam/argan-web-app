@@ -5,7 +5,24 @@ export default createStore({
     products: [
       {
         id: 1,
-        imgPath: "productImg1.png",
+        imgsPath: [
+          { 
+            id: 1,
+            path: require('../assets/productsImages/productImg1'+'.png')
+          },
+          { 
+            id: 2,
+            path: require('../assets/productsImages/productImg2'+'.png')
+          },
+          { 
+            id: 3,
+            path: require('../assets/productsImages/productImg3'+'.png')
+          },
+          { 
+            id: 4,
+            path: require('../assets/productsImages/productImg4'+'.png')
+          },
+        ],
         name: "Product 1",
         price: 13,
         rating: "80",
@@ -16,7 +33,24 @@ export default createStore({
       },
       {
         id: 2,
-        imgPath: "../assets/logo.png",
+        imgsPath: [
+          { 
+            id: 2,
+            path: require('../assets/productsImages/productImg2'+'.png')
+          },
+          { 
+            id: 3,
+            path: require('../assets/productsImages/productImg3'+'.png')
+          },
+          { 
+            id: 4,
+            path: require('../assets/productsImages/productImg4'+'.png')
+          },
+          { 
+            id: 5,
+            path: require('../assets/productsImages/productImg5'+'.png')
+          },
+        ],
         name: "Product 2",
         price: 17,
         rating: "80",
@@ -27,7 +61,24 @@ export default createStore({
       },
       {
         id: 3,
-        imgPath: "../assets/logo.png",
+        imgsPath: [
+          { 
+            id: 3,
+            path: require('../assets/productsImages/productImg3'+'.png')
+          },
+          { 
+            id: 4,
+            path: require('../assets/productsImages/productImg4'+'.png')
+          },
+          { 
+            id: 5,
+            path: require('../assets/productsImages/productImg5'+'.png')
+          },
+          { 
+            id: 1,
+            path: require('../assets/productsImages/productImg1'+'.png')
+          },
+        ],
         name: "Product 3",
         price: 15,
         rating: "80",
@@ -38,7 +89,24 @@ export default createStore({
       },
       {
         id: 4,
-        imgPath: "../assets/logo.png",
+        imgsPath: [
+          { 
+            id: 4,
+            path: require('../assets/productsImages/productImg4'+'.png')
+          },
+          { 
+            id: 5,
+            path: require('../assets/productsImages/productImg5'+'.png')
+          },
+          { 
+            id: 1,
+            path: require('../assets/productsImages/productImg1'+'.png')
+          },
+          { 
+            id: 2,
+            path: require('../assets/productsImages/productImg2'+'.png')
+          },
+        ],
         name: "Product 4",
         price: 14,
         rating: "80",
@@ -49,7 +117,24 @@ export default createStore({
       },
       {
         id: 5,
-        imgPath: "../assets/logo.png",
+        imgsPath: [
+          { 
+            id: 5,
+            path: require('../assets/productsImages/productImg5'+'.png')
+          },
+          { 
+            id: 1,
+            path: require('../assets/productsImages/productImg1'+'.png')
+          },
+          { 
+            id: 2,
+            path: require('../assets/productsImages/productImg2'+'.png')
+          },
+          { 
+            id: 3,
+            path: require('../assets/productsImages/productImg3'+'.png')
+          },
+        ],
         name: "Product 5",
         price: 21,
         rating: "80",

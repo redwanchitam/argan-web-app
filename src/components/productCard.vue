@@ -3,7 +3,7 @@
     <div class="p-2 m-2 mb-4 tagShadow productCard">
       <router-link :to="'/products/p/' + product.id">
         <div class="tagShadow cardProductImg">
-          <img class="img-fluid productImg" src="../assets/productsImages/productImg4.png"/>
+          <img class="img-fluid productImg" v-bind:src="product.imgsPath[0].path"/>
         </div>
         <div class="d-flex w-100 justify-content-start">
           <a>{{ product.name }}</a>

@@ -5,10 +5,10 @@
       <a class="nav-link">TOP SELLING</a>
       <div class="d-flex topSellingBox">
         <productCard
-          v-for="product in this.$store.state.products"
+          v-for="(product,index) in this.$store.state.products"
           v-bind:product="product"
           v-bind:key="product.id"
-          v-bind:index="product.id-1"
+          v-bind:index="index"
         >
         </productCard>
       </div>
