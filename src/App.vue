@@ -10,18 +10,18 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="#">
+              <a class="nav-link">
                 <router-link to="/">Home</router-link>
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link">
                 <router-link to="/products">Products</router-link>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link">
                 <router-link to="/about">About</router-link>
               </a>
             </li>
@@ -35,20 +35,42 @@
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?&family=Gruppo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
 #app {
-  font-family: 'Gruppo', cursive;
-  // font-family: 'Redressed', cursive;
-  // font-family: 'Marck Script', cursive;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
   text-align: center;
   color: #171E0F;
 }
+.h1 {
+  font-weight: 200 !important;
+}
+.h2 {
+  font-weight: 200 !important;
+}
+.h3 {
+  font-weight: 200 !important;
+}
+.h4 {
+  font-weight: 200 !important;
+}
+.h5 {
+  font-weight: 200 !important;
+}
+.h6 {
+  font-weight: 200 !important;
+}
+a {
+    color: #171E0F;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
 #nav {
   background-color:#EDBB96;
-  box-shadow: 0px 0px 9px rgb(65, 54, 42);
+  box-shadow: 0px 0px 12px rgb(65, 54, 42);
   a {
-    font-weight: bold;
     color: #2c3e50;
 
     &.router-link-exact-active {
@@ -62,11 +84,20 @@
   transition: ease all .7s;
 }
 .tagShadow:hover {
-  box-shadow: 0px 0px 9px rgb(65, 54, 42);
+  box-shadow: 0px 0px 12px rgb(65, 54, 42);
   transition: ease all .7s;
 }
 
-
+// products
+.topSellingBox {
+  position: relative;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+.navCateg {
+  position: relative;
+  overflow: hidden;
+}
 // productDetails
 .box {
   width: 80%;
@@ -88,6 +119,12 @@
 .activeProductImg {
   max-width: 100%;
   height: 20rem;
+  overflow: hidden;
+  position: relative;
+}
+.cardProductImg {
+  max-width: 100%;
+  max-height: 12rem;
   overflow: hidden;
   position: relative;
 }
@@ -122,14 +159,14 @@
   transition: ease-in-out all .7s;
 }
 .tagBtnPrimary {
-  border: 1px solid white;
-  background-color: #DD7150;
-  color: white;
+  border: 1px solid white !important;
+  background-color: #DD7150 !important;
+  color: white !important;
 }
 .tagBtnSecondary {
-  border: 1px solid #DD7150;
-  background-color:white;
-  color: #DD7150;
+  border: 1px solid #DD7150 !important;
+  background-color:white !important;
+  color: #DD7150 !important;
 }
 .tagBtnMenu {
   width: 3rem;

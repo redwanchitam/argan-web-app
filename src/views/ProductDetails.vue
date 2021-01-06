@@ -24,17 +24,17 @@
           <div class="col-lg-5 col-md-12 col-sm-12 p-2">
             <div class="w-100 box subDetailsBox infoSubDetailsBox">
               <div class="d-flex flex-column align-items-start">
-                <h2 v-on:click="toggleActiveImg" >{{ this.$store.state.products[2].name }}</h2>
-                <h3>{{ this.$store.state.products[2].category }}</h3>
-                <h3>{{ this.$store.state.products[2].rating }}</h3>
-                <h3>{{ this.$store.state.products[2].price }} $</h3>
+                <h2 v-on:click="toggleActiveImg" >{{ this.$store.state.products[$route.params.id].name }}</h2>
+                <h3>{{ this.$store.state.products[$route.params.id].category }}</h3>
+                <h3>{{ this.$store.state.products[$route.params.id].rating }}</h3>
+                <h3>{{ this.$store.state.products[$route.params.id].price }} $</h3>
               </div>
             </div>
           </div>
           <div class="col-lg-7 col-md-12 col-sm-12 p-2">
             <div class="d-flex w-100 box subDetailsBox infoSubDetailsBox">
               <div class="tagShadow descriptionBox">
-                <p>{{ this.$store.state.products[2].description }}</p>
+                <p>{{ this.$store.state.products[$route.params.id].description }}</p>
               </div>
             </div>
           </div>
@@ -48,7 +48,7 @@
                   <div class="row m-0">
                     <span
                       class="mr-2"
-                      v-for="mainOrgan in this.$store.state.products[2].mainOrgans"
+                      v-for="mainOrgan in this.$store.state.products[$route.params.id].mainOrgans"
                       v-bind:key= mainOrgan
                       >
                       {{ mainOrgan }}
@@ -64,7 +64,7 @@
                   <div class="row m-0">
                     <span
                       class="mr-2"
-                      v-for="deliverie in this.$store.state.products[2].deliveries"
+                      v-for="deliverie in this.$store.state.products[$route.params.id].deliveries"
                       v-bind:key= deliverie
                       >
                       {{ deliverie }}

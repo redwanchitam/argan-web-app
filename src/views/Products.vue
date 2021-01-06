@@ -2,38 +2,42 @@
   <div class="container">
     <div class="products">
       <!-- TOP SELLING -->
-      <a class="nav-link" href="#">TOP SELLING</a>
-      <div class="row justify-content-center">
+      <a class="nav-link">TOP SELLING</a>
+      <div class="d-flex topSellingBox">
         <productCard
-          v-for="(product, index) in this.$store.state.products"
+          v-for="product in this.$store.state.products"
           v-bind:product="product"
-          v-bind:index="index"
           v-bind:key="product.id"
+          v-bind:index="product.id-1"
         >
         </productCard>
       </div>
 
       <!-- CATEGORIES -->
-      <ul class="nav justify-content-center">
-        <li
-          v-for="(category, index) in this.$store.state.categories"
-          v-bind:index="index"
-          v-bind:key="category.id"
-          v-bind:categorie="category"
-          class="nav-item"
-          href="#"
-        >
-          <a class="nav-link" href="#">{{ category.name }}</a>
-        </li>
-      </ul>
-      <div class="row justify-content-center">
-        <productCard
-          v-for="(product, index) in this.$store.state.products"
-          v-bind:product="product"
-          v-bind:index="index"
-          v-bind:key="product.id"
-        >
-        </productCard>
+      <div class="mt-5 productsWithCateg">
+        <div class="row m-0 justify-content-center">
+          <ul class="p-0 d-flex w-100 navCateg justify-content-around">
+            <a
+              v-for="category in this.$store.state.categories"
+              v-bind:key="category.id"
+              v-bind:index="category.id"
+              v-bind:category="category"
+              class="nav-item"
+              href="#"
+            >
+              {{ category.name }}
+            </a>
+          </ul>
+        </div>
+        <div class="row m-0 justify-content-center productsByCategBox">
+          <productCard
+            v-for="product in this.$store.state.products"
+            v-bind:product="product"
+            v-bind:key="product.id"
+            v-bind:index="product.id"
+          >
+          </productCard>
+        </div>
       </div>
     </div>
   </div>
