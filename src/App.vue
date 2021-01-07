@@ -124,7 +124,7 @@ a {
 }
 .cardProductImg {
   max-width: 100%;
-  max-height: 12rem;
+  height: 12rem;
   overflow: hidden;
   position: relative;
 }
@@ -149,6 +149,9 @@ a {
   height: 4rem;
   overflow: hidden;
   position: relative;
+}
+.productInfosItem {
+  width: fit-content;
 }
 .descriptionBox {
   justify-self: start;

@@ -2,7 +2,7 @@
   <div class="col-lg-3 col-md-4 col-6 p-0">
     <div class="p-2 m-2 mb-4 tagShadow productCard">
       <router-link :to="'/products/p/' + product.id">
-        <div class="tagShadow cardProductImg">
+        <div class="cardProductImg">
           <img class="img-fluid productImg" v-bind:src="product.imgsPath[0].path"/>
         </div>
         <div class="d-flex w-100 justify-content-start">

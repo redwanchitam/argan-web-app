@@ -27,12 +27,17 @@
           <!-- product infos -->
           <div class="col-lg-5 col-md-12 col-sm-12 p-2">
             <div class="w-100 box subDetailsBox infoSubDetailsBox">
-              <div class="d-flex flex-column align-items-start">
-                <h4>{{ currentProduct.name }}</h4>
-                <h6>{{ currentProduct.category }}</h6>
-                <small>{{ currentProduct.rating }}</small>
-                <h5>{{ currentProduct.price }} $</h5>
+              <div class="row m-0 justify-content-around">
+                <div class="col-lg-12 col-md-12 col-sm-6">
+                  <h3 class="productInfosItem">{{ currentProduct.name }}</h3>
+                  <h4 class="productInfosItem">{{ currentProduct.category }}</h4>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-6 pr-auto">
+                  <h5 class="productInfosItem ml-auto">{{ currentProduct.rating }}</h5>
+                  <h4 class="productInfosItem ml-auto">{{ currentProduct.price }} $</h4>
+                </div>
               </div>
+
             </div>
           </div>
           <!-- description -->
@@ -48,27 +53,27 @@
             <div class="d-flex flex-column w-100 box subDetailsBox infoSubDetailsBox">
               <!-- main organs -->
               <div class="row m-0">
-                <div class="col-4 w-100">
-                  <div class="row m-0 justify-content-start"><h4>Main Organ</h4></div>
-                </div>
-                <div class="col-8 w-100">
+                <div class="col-5 justify-content-start pl-0">
                   <div class="row m-0">
-                    <span
-                      class="mr-2"
-                      v-for="mainOrgan in this.$store.state.products[$route.params.id-1].mainOrgans"
-                      v-bind:key= mainOrgan
-                      >
-                      {{ mainOrgan }}
-                    </span>
+                    <h6 class="productInfosItem">Main Organ</h6>
                   </div>
+                </div>
+                <div class="col-7 justify-content-start pl-0">
+                  <span
+                    class="mr-2"
+                    v-for="mainOrgan in this.$store.state.products[$route.params.id-1].mainOrgans"
+                    v-bind:key= mainOrgan
+                    >
+                    {{ mainOrgan }}
+                  </span>
                 </div>
               </div>
               <!-- deliveries -->
               <div class="row m-0">
-                <div class="col-4 w-100">
-                  <div class="row m-0 justify-content-start"><h4>Delivery</h4></div>
+                <div class="col-5 justify-content-start pl-0">
+                  <h6 class="productInfosItem">Delivery</h6>
                 </div>
-                <div class="col-8 w-100">
+                <div class="col-7 justify-content-start pl-0">
                   <div class="row m-0">
                     <span
                       class="mr-2"
@@ -82,7 +87,7 @@
               </div>
               <!-- buttons -->
               <div class="row m-0 justify-content-end mt-5">
-                <button class="ml-2 tagBtn tagBtnSecondary tagShadow" style="width: 30%">Go Back</button>
+                <button class="ml-2 tagBtn tagBtnSecondary tagShadow" style="width: 30%" @click="$router.go(-1)">Go Back</button>
                 <button class="ml-2 tagBtn tagBtnPrimary tagShadow" style="width: 30%">Confirm</button>
               </div>
             </div>
