@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="row w-100 m-0 tagShadow box detailsbox justify-content-center p-3">
+    <div class="row w-100 m-0 mb-5 tagShadow box detailsbox justify-content-center p-3">
       <!-- details images -->
       <div class="col-lg-5 col-md-6 col-sm-12 p-2">
         <div class="d-flex flex-column w-100 box subDetailsBox imgsSubDetailsBox">
@@ -15,7 +15,7 @@
               v-bind:imgPath= imgPath
               v-bind:key= imgPath.id
               v-bind:index= index
-              v-on:click="toggleActiveImg" :id="'imgBox' + imgPath.id" class="tagShadow sleepingProductImg">
+              v-on:click="toggleActiveImg" :id="'imgBox' + imgPath.id" class="sleepingProductImg">
               <img class="img-fluid productImg" :id="imgPath.id" :src="imgPath.path" />
             </div>
           </div>
@@ -53,34 +53,40 @@
             <div class="d-flex flex-column w-100 box subDetailsBox infoSubDetailsBox">
               <!-- main organs -->
               <div class="row m-0">
-                <div class="col-5 justify-content-start pl-0">
+                <div class="col-4 justify-content-start pr-0">
                   <div class="row m-0">
                     <h6 class="productInfosItem">Main Organ</h6>
+                    <h6 class="ml-auto">:</h6>
                   </div>
                 </div>
-                <div class="col-7 justify-content-start pl-0">
-                  <span
-                    class="mr-2"
-                    v-for="mainOrgan in this.$store.state.products[$route.params.id-1].mainOrgans"
-                    v-bind:key= mainOrgan
-                    >
-                    {{ mainOrgan }}
-                  </span>
+                <div class="col-8">
+                  <div class="row m-0">
+                    <span
+                      class="mr-2 mb-1 badge badge-dark"
+                      v-for="mainOrgan in currentProduct.mainOrgans"
+                      v-bind:key= mainOrgan
+                      >
+                      {{ mainOrgan }}
+                    </span>
+                  </div>
                 </div>
               </div>
               <!-- deliveries -->
               <div class="row m-0">
-                <div class="col-5 justify-content-start pl-0">
-                  <h6 class="productInfosItem">Delivery</h6>
+                <div class="col-4 justify-content-start pr-0">
+                  <div class="row m-0">
+                    <h6 class="productInfosItem">Delivery</h6>
+                    <h6 class="ml-auto">:</h6>
+                  </div>
                 </div>
-                <div class="col-7 justify-content-start pl-0">
+                <div class="col-8">
                   <div class="row m-0">
                     <span
-                      class="mr-2"
-                      v-for="deliverie in this.$store.state.products[$route.params.id-1].deliveries"
-                      v-bind:key= deliverie
+                      class="mr-2 mb-1 badge badge-dark"
+                      v-for="delivery in currentProduct.deliveries"
+                      v-bind:key= delivery
                       >
-                      {{ deliverie }}
+                      {{ delivery }}
                     </span>
                   </div>
                 </div>

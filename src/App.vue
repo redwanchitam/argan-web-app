@@ -4,7 +4,7 @@
     <nav class="navbar navbar-expand-lg">
       <a class="navbar-brand" href="#">Arganica</a>
       <div class="ml-auto">
-        <button class="navbar-toggler tagBtnMenu tagShadow" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler tagBtn tagBtnMenu tagShadow" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           +
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -78,6 +78,38 @@ a {
     }
   }
 }
+
+// buttons
+.tagBtn {
+  cursor: pointer;
+  transition: ease-in-out all .7s;
+  outline: none !important;
+}
+.tagBtnPrimary {
+  border: 1px solid white !important;
+  border-radius: calc(0.7rem - 1px);
+  background-color: #DD7150 !important;
+  color: white !important;
+}
+.tagBtnSecondary {
+  border: 1px solid #DD7150 !important;
+  border-radius: calc(0.7rem - 1px);
+  background-color:white !important;
+  color: #DD7150 !important;
+}
+.tagBtnMenu {
+  outline: none;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid #DD7150;
+  background-color:white;
+  color: #DD7150;
+  border-radius: 50% !important;
+  justify-content: center;
+  align-items: center;
+}
+
+// shadow
 .tagShadow{
   border-radius: calc(0.7rem - 1px);
   box-shadow: 0px 0px 3px rgb(65, 54, 42);
@@ -98,17 +130,13 @@ a {
   position: relative;
   overflow: hidden;
 }
-// productDetails
-.box {
-  width: 80%;
-  // border: 1px solid orange;
-  border-radius: calc(0.7rem - 1px);
-}
-.detailsbox {
-  background-color: white;
-}
-.subDetailsBox {
-  // justify-content: center;
+
+// product
+.cardProductImg {
+  max-width: 100%;
+  height: 12rem;
+  overflow: hidden;
+  position: relative;
 }
 .productImg {
   max-width: 100%;
@@ -116,27 +144,29 @@ a {
   border-radius: calc(0.7rem - 1px);
   transition: ease all .7s;
 }
+
+// productDetails
+.box {
+  width: 80%;
+  border-radius: calc(0.7rem - 1px);
+}
+.detailsbox {
+  background-color: white;
+}
 .activeProductImg {
   max-width: 100%;
   height: 20rem;
   overflow: hidden;
   position: relative;
-}
-.cardProductImg {
-  max-width: 100%;
-  height: 12rem;
-  overflow: hidden;
-  position: relative;
-}
-.activeProductImg .productImg {
-  position: absolute;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
+  box-shadow: 0px 0px 3px rgb(65, 54, 42);
+  border-radius: calc(0.7rem - 1px);
 }
 .activeProductImg:hover .productImg{
-  max-width: 125% !important;
+  -ms-transform: translateY(-15%);
+  transform: translateY(-15%);
+  -ms-transform: translateX(-15%);
+  transform: translateX(-15%);
+  max-width: 130% !important;
   transition: ease-in-out all .7s;
 }
 .sleepingProductImgsBox {
@@ -149,6 +179,16 @@ a {
   height: 4rem;
   overflow: hidden;
   position: relative;
+  border-radius: calc(0.7rem - 1px);
+  box-shadow: 0px 0px 3px rgb(65, 54, 42);
+}
+.sleepingProductImg:hover .productImg{
+  -ms-transform: translateY(-15%);
+  transform: translateY(-15%);
+  -ms-transform: translateX(-15%);
+  transform: translateX(-15%);
+  max-width: 130% !important;
+  transition: ease-in-out all .7s;
 }
 .productInfosItem {
   width: fit-content;
@@ -156,30 +196,5 @@ a {
 .descriptionBox {
   justify-self: start;
   padding: 1rem;
-}
-.tagBtn {
-  border-radius: calc(0.7rem - 1px);
-  transition: ease-in-out all .7s;
-}
-.tagBtnPrimary {
-  border: 1px solid white !important;
-  background-color: #DD7150 !important;
-  color: white !important;
-}
-.tagBtnSecondary {
-  border: 1px solid #DD7150 !important;
-  background-color:white !important;
-  color: #DD7150 !important;
-}
-.tagBtnMenu {
-  width: 3rem;
-  height: 3rem;
-  border: 1px solid #DD7150;
-  background-color:white;
-  color: #DD7150;
-  border-radius: 50%;
-  justify-content: center;
-  align-items: center;
-  transition: ease-in-out all .7s;
 }
 </style>
