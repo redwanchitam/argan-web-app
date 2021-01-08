@@ -20,7 +20,6 @@
             <a
               v-for="category in this.$store.state.categories"
               v-bind:key="category.id"
-              v-bind:index="category.id"
               v-bind:category="category"
               class="nav-item"
               href="#"
@@ -31,10 +30,10 @@
         </div>
         <div class="row m-0 justify-content-center productsByCategBox">
           <productCard
-            v-for="product in this.$store.state.products"
+            v-for="(product,index) in this.$store.state.products"
             v-bind:product="product"
             v-bind:key="product.id"
-            v-bind:index="product.id"
+            v-bind:index="index"
           >
           </productCard>
         </div>

@@ -15,11 +15,21 @@ const routes = [
   },
   {
     path: "/products/p/:id",
-    name: "productDetails-with-id",
+    name: "productDetails",
     component: () =>
       import(
         /* webpackChunkName: "ProductDetails" */
         "../views/ProductDetails.vue"
+      ),
+    props: true
+  },
+  {
+    path: "/user/:id/cart",
+    name: "cart",
+    component: () =>
+      import(
+        /* webpackChunkName: "ProductDetails" */
+        "../views/cart.vue"
       ),
     props: true
   },

@@ -2,7 +2,7 @@
   <div class="tagNav sticky-top p-0 py-2 mb-5" id="nav">
 
     <nav class="navbar navbar-expand-lg">
-      <a class="navbar-brand" href="#">Arganica</a>
+      <router-link class="navbar-brand" to="/" >Arganica</router-link>
       <div class="ml-auto">
         <button class="navbar-toggler tagBtn tagBtnMenu tagShadow" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           +
@@ -196,5 +196,15 @@ a {
 .descriptionBox {
   justify-self: start;
   padding: 1rem;
+}
+
+//cart
+.cartBody {
+  border-top: 1px solid #171E0F;
+  height: 40vh;
+  overflow-y: scroll;
+}
+.cartFooter{
+  border-top: 1px solid #171E0F;
 }
 </style>

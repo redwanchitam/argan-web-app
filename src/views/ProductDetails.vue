@@ -94,7 +94,7 @@
               <!-- buttons -->
               <div class="row m-0 justify-content-end mt-5">
                 <button class="ml-2 tagBtn tagBtnSecondary tagShadow" style="width: 30%" @click="$router.go(-1)">Go Back</button>
-                <button class="ml-2 tagBtn tagBtnPrimary tagShadow" style="width: 30%">Confirm</button>
+                <button class="ml-2 tagBtn tagBtnPrimary tagShadow" style="width: 30%">Add to card</button>
               </div>
             </div>
           </div>
