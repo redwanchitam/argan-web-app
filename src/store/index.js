@@ -293,7 +293,12 @@ export default createStore({
       }
     ]
   },
-  mutations: {},
+  mutations: {
+    removeItem (state,productId) {
+      var itemToRemove = state.cart.find(cartItem => cartItem.product.id === productId);
+      state.cart.splice( state.cart.indexOf(itemToRemove),1);
+    }
+  },
   actions: {},
   modules: {}
 });

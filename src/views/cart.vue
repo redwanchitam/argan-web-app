@@ -18,15 +18,15 @@
         <div class="row m-0 px-2 w-100 cartFooter">
             <div class="row m-0 w-100 pt-2 justify-content-between">
                 <div class="">
-                    <h6 class="">Total :</h6>
+                    <h4 class="">Total :</h4>
                 </div>
                 <div class="">
-                    <h4 class="">214 $</h4>
+                    <h4 class="">576 $</h4>
                 </div>
             </div>
             <div class="row m-0 w-100 pt-2 justify-content-end">
                 <button class="ml-2 px-2 py-1 tagBtn tagBtnSecondary tagShadow" @click="$router.go(-1)">Go Back</button>
-                <button class="ml-2 px-2 py-1 tagBtn tagBtnPrimary tagShadow" >Checkout</button>
+                <button class="ml-2 px-2 py-1 tagBtn tagBtnPrimary tagShadow" @click="updateTotal" >Checkout</button>
             </div>
         </div>
     </div>
@@ -37,7 +37,6 @@
 // @ is an alias to /src
 import cartItem from "@/components/cartItem.vue";
 import Store from "@/store/index.js";
-import $ from "jquery";
 
 export default {
   name: "Cart",
@@ -50,18 +49,6 @@ export default {
       cart:  this.$store.state.cart
     }
   },
-  methods: {
-    toggleActiveImg : function (event) {
-
-      var imgBoxId = $("#" + event.target.id).parent().attr("id");
-      var imgHtml = $("#" + event.target.id).parent().html();
-
-      $("#" + event.target.id).parent().attr("id", $(".activeProductImg").attr("id") );
-      $("#" + event.target.id).parent().html($(".activeProductImg").html());
-
-      $(".activeProductImg").attr("id", imgBoxId);
-      $(".activeProductImg").html(imgHtml);
-    }
-  }
+  methods: {}
 };
 </script>

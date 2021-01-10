@@ -3,7 +3,7 @@
 
     <nav class="navbar navbar-expand-lg">
       <router-link class="navbar-brand" to="/" >Arganica</router-link>
-      <div class="ml-auto">
+      <div class="ml-auto d-flex flex-row">
         <button class="navbar-toggler tagBtn tagBtnMenu tagShadow" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           +
         </button>
@@ -27,6 +27,11 @@
             </li>
           </ul>
         </div>
+        <a href="/user/8/cart">
+          <button class="ml-2 tagBtn tagBtnMenu tagBtnPrimary tagShadow" type="button">
+            C
+          </button>
+        </a>
       </div>
     </nav>
   </div>
@@ -96,6 +101,13 @@ a {
   border-radius: calc(0.7rem - 1px);
   background-color:white !important;
   color: #DD7150 !important;
+}
+.tagBtnRemove {
+  outline: none;
+  height:fit-content;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
 }
 .tagBtnMenu {
   outline: none;
