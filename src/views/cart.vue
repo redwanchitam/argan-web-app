@@ -44,9 +44,9 @@ export default {
   components: {
     cartItem
   },
-  data: function () {
-    return {
-      cart:  this.$store.state.cart
+  computed: {
+    cart () {
+      return this.$store.state.cart
     }
   },
   methods: {}

@@ -27,16 +27,29 @@
             </li>
           </ul>
         </div>
-        <a href="/user/8/cart">
+        <router-link to="/user/8/cart" >
           <button class="ml-2 tagBtn tagBtnMenu tagBtnPrimary tagShadow" type="button">
-            C
+              <small>C ({{ count }})</small>
           </button>
-        </a>
+        </router-link>
       </div>
     </nav>
   </div>
   <router-view />
 </template>
+
+<script>
+import Store from "@/store/index.js";
+export default {
+  store: Store,
+  computed: {
+    count () {
+      return this.$store.state.cart.length
+    }
+  }
+};
+</script>
+
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?&family=Gruppo&display=swap');

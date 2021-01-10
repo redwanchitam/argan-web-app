@@ -11,16 +11,45 @@
       </router-link>
         <div class="d-flex w-100 align-items-baseline justify-content-around">
           <a>{{ product.price }} $</a>
-          <a class="ml-auto px-2 py-1 tagBtn tagBtnPrimary tagShadow"><small>Add to Cart</small></a>
+          <small 
+            v-if="ifPrdExistInCart(product)"
+            :name="'pdtBtn' + product.id"
+            class="ml-auto px-2 py-1 tagBtn tagBtnSecondary tagShadow"
+            @click="removeItem(product)">
+              Remove
+          </small>
+          <small 
+            v-else
+            :name="'pdtBtn' + product.id"
+            class="ml-auto px-2 py-1 tagBtn tagBtnPrimary tagShadow"
+            @click="addItem(product)">
+              Add to Cart
+          </small>
         </div>
     </div>
   </div>
 </template>
 
 <script>
+import Store from "@/store/index.js";
 export default {
-  mounted() {
-    console.log("Component mounted.");
+  store: Store,
+  computed: {
+  },
+  methods: {
+    ifPrdExistInCart : function(product) {
+      if (this.$store.state.cart.find(cartItem => cartItem.product.id === product.id) === undefined){
+        return false;
+      }else{
+        return true;
+      }
+    },
+    removeItem : function(product) {
+      this.$store.commit("removeItem",product.id);
+    },
+    addItem : function(product) {
+      this.$store.commit("addItem",product);
+    }
   },
   props: ["product"]
 };

@@ -15,13 +15,14 @@
             <h4>{{ cartItem.quantity  * cartItem.product.price }} $</h4>
         </div>
         <div class="d-flex col-2 w-100 p-0 justify-content-center btnCartItem">
-            <span tag="button" class="badge badge-dark tagBtn tagBtnRemove"  @click="removeItem(cartItem.product.id)">remove</span>
+            <small tag="button" class="badge badge-dark tagBtn tagBtnRemove"  @click="removeItem(cartItem.product.id)">remove</small>
         </div>
     </div>
 </template>
 
 <script>
 import Store from "@/store/index.js";
+// import $ from "jquery";
 export default {
     store: Store,
     methods: {
