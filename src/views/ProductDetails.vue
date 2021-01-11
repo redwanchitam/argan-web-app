@@ -114,7 +114,7 @@ export default {
   store: Store,
   data: function () {
     return {
-      currentProduct: this.$store.state.products[this.$route.params.id-1]
+      currentProduct: this.$store.state.products.find(product => product.id == this.$route.params.id)
     }
   },
   methods: {

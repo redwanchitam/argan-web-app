@@ -8,11 +8,13 @@
         <div class="d-flex col-4 w-100 p-0 justify-content-start cartItemName" style="height: fit-content;">
             <h4>{{ cartItem.product.name }}</h4>
         </div>
-        <div class="d-flex col-2 w-100 p-0 justify-content-center  cartItemQuantity" style="height: fit-content;">
-            <a>{{ cartItem.quantity }}</a>
+        <div class="col-2 w-100 p-0 justify-content-center  cartItemQuantity" style="height: fit-content;">
+            <div class="d-flex">
+                <input  @change="itemTotal(cartItem.product.id)" :value="cartItem.quantity" class="w-100 text-center" min="1" max="5" :name="'itemQuantity' + cartItem.product.id" type="number">
+            </div>
         </div>
         <div class="d-flex col-2 w-100 p-0 justify-content-center btnCartItem" style="height: fit-content;">
-            <h4>{{ cartItem.quantity  * cartItem.product.price }} $</h4>
+            <h4>{{ quantity * cartItem.product.price }} $</h4>
         </div>
         <div class="d-flex col-2 w-100 p-0 justify-content-center btnCartItem">
             <small tag="button" class="badge badge-dark tagBtn tagBtnRemove"  @click="removeItem(cartItem.product.id)">remove</small>
@@ -22,12 +24,23 @@
 
 <script>
 import Store from "@/store/index.js";
-// import $ from "jquery";
+import $ from "jquery";
 export default {
     store: Store,
+    computed: {
+    },
+    data: function () {
+    return {
+        quantity: 1,
+    }
+  },
     methods: {
-        removeItem : function (productId){
-            this.$store.commit("removeItem",productId);
+        itemTotal : function (productId) {
+            var updatedQuantity = $("input[name='itemQuantity"+ productId+"']").val();
+            this.$store.commit("updateQuantity",{productId,updatedQuantity});
+        },
+        removeItem : function (product){
+            this.$store.commit("removeItem",product);
         }
     },
     props: ["cartItem"]

@@ -167,7 +167,7 @@ export default createStore({
         name: "FEEDING"
       }
     ],
-    cart: []
+    cart: [],
   },
   mutations: {
     removeItem (state,productId) {
@@ -194,6 +194,14 @@ export default createStore({
         $("small[name='pdtBtn"+ product.id +"']").addClass("tagBtnSecondary");
       }catch{
         alert("removing product failed");
+      }
+    },
+    updateQuantity (state,{productId,updatedQuantity}){
+      try {  
+        var currentCartItem = state.cart.find(cartItem => cartItem.product.id === productId);
+        currentCartItem.quantity = updatedQuantity;
+      } catch (error) {
+        alert("updating quantity failed");
       }
     }
   },
