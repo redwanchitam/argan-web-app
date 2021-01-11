@@ -21,7 +21,7 @@
                     <h4 class="">Total :</h4>
                 </div>
                 <div class="">
-                    <h4 class="">576 $</h4>
+                    <h4 class="">{{ total }} $</h4>
                 </div>
             </div>
             <div class="row m-0 w-100 pt-2 justify-content-end">
@@ -45,10 +45,18 @@ export default {
     cartItem
   },
   computed: {
+    total () {
+      var total = 0 ;
+      this.$store.state.cart.forEach(cartItem => {
+        total+= cartItem.product.price * cartItem.quantity;
+      });
+      return total;
+    },
     cart () {
       return this.$store.state.cart
     }
   },
-  methods: {}
+  methods: {
+  }
 };
 </script>
