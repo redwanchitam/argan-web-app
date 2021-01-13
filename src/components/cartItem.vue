@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="d-flex col-2 w-100 p-0 justify-content-center btnCartItem" style="height: fit-content;">
-            <h4>{{ quantity * cartItem.product.price }} $</h4>
+            <h4>{{ cartItem.quantity * cartItem.product.price }} $</h4>
         </div>
         <div class="d-flex col-2 w-100 p-0 justify-content-center btnCartItem">
             <small tag="button" class="badge badge-dark tagBtn tagBtnRemove"  @click="removeItem(cartItem.product.id)">remove</small>
@@ -46,6 +46,7 @@ export default {
     props: ["cartItem"]
 };
 </script>
+
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">

@@ -5,8 +5,15 @@
         <div class="cardProductImg">
           <img class="img-fluid productImg" v-bind:src="product.imgsPath[0].path"/>
         </div>
-        <div class="d-flex w-100 justify-content-start">
+        <div class="row m-0 w-100 align-items-baseline justify-content-start">
           <a>{{ product.name }}</a>
+          <div class="d-flex flex-row mb-2 ml-auto productInfosItem">
+            <div class="unitRating unitRatingOn"></div>
+            <div class="unitRating unitRatingOn"></div>
+            <div class="unitRating unitRatingOn"></div>
+            <div class="unitRating unitRatingOn"></div>
+            <div class="unitRating unitRatingOff"></div>
+          </div>
         </div>
       </router-link>
         <div class="d-flex w-100 align-items-baseline justify-content-around">
@@ -54,6 +61,7 @@ export default {
   props: ["product"]
 };
 </script>
+
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">

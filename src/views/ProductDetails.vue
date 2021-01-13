@@ -33,7 +33,13 @@
                   <h4 class="productInfosItem">{{ currentProduct.category }}</h4>
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-6 pr-auto">
-                  <h5 class="productInfosItem ml-auto">{{ currentProduct.rating }}</h5>
+                  <div class="d-flex flex-row align-items-center mb-2 ml-auto productInfosItem">
+                    <div class="unitRating unitRatingOn"></div>
+                    <div class="unitRating unitRatingOn"></div>
+                    <div class="unitRating unitRatingOn"></div>
+                    <div class="unitRating unitRatingOn"></div>
+                    <div class="unitRating unitRatingOff"></div>
+                  </div>
                   <h4 class="productInfosItem ml-auto">{{ currentProduct.price }} $</h4>
                 </div>
               </div>
@@ -94,7 +100,22 @@
               <!-- buttons -->
               <div class="row m-0 justify-content-end mt-5">
                 <button class="ml-2 tagBtn tagBtnSecondary tagShadow" style="width: 30%" @click="$router.go(-1)">Go Back</button>
-                <button class="ml-2 tagBtn tagBtnPrimary tagShadow" style="width: 30%">Add to card</button>
+                <button
+                  v-if="ifPrdExistInCart(currentProduct)"
+                  @click="removeItem(currentProduct)"
+                  :name="'pdtBtn' + currentProduct.id"
+                  class="ml-2 tagBtn tagBtnSecondary tagShadow"
+                  >
+                  Remove
+                </button>
+                <button
+                  v-else
+                  :name="'pdtBtn' + currentProduct.id"
+                  @click="addItem(currentProduct)"
+                  class="ml-2 tagBtn tagBtnPrimary tagShadow"
+                  >
+                  Add to card
+                </button>
               </div>
             </div>
           </div>
@@ -118,6 +139,19 @@ export default {
     }
   },
   methods: {
+    ifPrdExistInCart : function(product) {
+      if (this.$store.state.cart.find(cartItem => cartItem.product.id === product.id) === undefined){
+        return false;
+      }else{
+        return true;
+      }
+    },
+    removeItem : function(product) {
+      this.$store.commit("removeItem",product.id);
+    },
+    addItem : function(product) {
+      this.$store.commit("addItem",product);
+    },
     toggleActiveImg : function (event) {
 
       var imgBoxId = $("#" + event.target.id).parent().attr("id");

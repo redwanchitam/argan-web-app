@@ -1,9 +1,9 @@
 <template>
   <div class="tagNav sticky-top p-0 py-2 mb-5" id="nav">
 
-    <nav class="navbar navbar-expand-lg">
+    <nav class="justify-content-between align-items-start navbar navbar-expand-lg">
       <router-link class="navbar-brand" to="/" >Arganica</router-link>
-      <div class="ml-auto d-flex flex-row">
+      <div class="d-flex flex-row" id="navbarNavBox">
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item active">
@@ -22,12 +22,21 @@
                 <router-link to="/about">About</router-link>
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link">
+                <router-link to="/contact">Contact Us</router-link>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
       <div class="d-flex flex-row">
-        <button class="navbar-toggler tagBtn tagBtnMenu tagShadow" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          +
+        <button 
+          id="btnMenu"
+          @click="toggleMenu"
+          class="navbar-toggler tagBtn tagBtnMenu tagShadow"
+          type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">+
         </button>
         <router-link to="/user/8/cart" >
           <button class="ml-2 tagBtn tagBtnMenu tagBtnPrimary tagShadow" type="button">
@@ -46,11 +55,31 @@
 
 <script>
 import Store from "@/store/index.js";
+import $ from "jquery";
 export default {
   store: Store,
   computed: {
     count () {
       return this.$store.state.cart.length
+    }
+  },
+  methods: {
+    toggleMenu : function() {
+      switch ($("#btnMenu").text()) {
+        case '+':
+          console.log("menu on");
+          $("#navbarNavBox").css({"height": " 50vh", "align-items": "center"});
+          $("#btnMenu").text("-")
+          break;
+        case "-":
+          console.log("menu off");
+          $("#navbarNavBox").css({"height": " inset", "align-items": "inset"});
+          $("#btnMenu").text("+")
+          break;
+        default:
+          console.log($("#btnMenu").text());
+          break;
+      }
     }
   }
 };
@@ -86,7 +115,6 @@ export default {
 }
 a {
     color: #171E0F;
-
     &.router-link-exact-active {
       color: #42b983;
     }
@@ -96,13 +124,11 @@ a {
   box-shadow: 0px 0px 12px rgb(65, 54, 42);
   a {
     color: #2c3e50;
-
     &.router-link-exact-active {
       color: #42b983;
     }
   }
 }
-
 // buttons
 .tagBtn {
   cursor: pointer;
@@ -139,7 +165,6 @@ a {
   justify-content: center;
   align-items: center;
 }
-
 // shadow
 .tagShadow{
   border-radius: calc(0.7rem - 1px);
@@ -151,6 +176,24 @@ a {
   transition: ease all .7s;
 }
 
+//home
+.homeCover {
+  max-width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0px 0px 3px rgb(65, 54, 42);
+  border-radius: calc(0.7rem - 1px); 
+}
+.MainCoverParag{
+  margin: 0;
+  color: white;
+  font-size: 30px;
+}
+.subCoverParag{
+  margin: 0;
+  font-size: 15px;
+}
 // products
 .topSellingBox {
   position: relative;
@@ -161,7 +204,6 @@ a {
   position: relative;
   overflow: hidden;
 }
-
 // product
 .cardProductImg {
   max-width: 100%;
@@ -175,7 +217,6 @@ a {
   border-radius: calc(0.7rem - 1px);
   transition: ease all .7s;
 }
-
 // productDetails
 .box {
   width: 80%;
@@ -228,7 +269,6 @@ a {
   justify-self: start;
   padding: 1rem;
 }
-
 //cart
 .cartBody {
   border-top: 1px solid #171E0F;
