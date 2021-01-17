@@ -1,6 +1,5 @@
 <template>
-  <div class="tagNav sticky-top p-0 py-2 mb-5" id="nav">
-
+  <div class="tagNav sticky-top p-0 mb-5" id="nav">
     <nav class="justify-content-between align-items-start navbar navbar-expand-lg">
       <router-link class="navbar-brand" to="/" >Arganica</router-link>
       <div class="d-flex flex-row" id="navbarNavBox">
@@ -88,44 +87,48 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?&family=Gruppo&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kufam:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
+
 #app {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 200;
+  font-family: 'Sofia', cursive;
+  font-weight: 400;
   text-align: center;
   color: #171E0F;
 }
 .h1 {
-  font-weight: 200 !important;
+  font-weight: 400 !important;
 }
 .h2 {
-  font-weight: 200 !important;
+  font-weight: 400 !important;
 }
 .h3 {
-  font-weight: 200 !important;
+  font-weight: 400 !important;
 }
 .h4 {
-  font-weight: 200 !important;
+  font-weight: 400 !important;
 }
 .h5 {
-  font-weight: 200 !important;
+  font-weight: 400 !important;
 }
 .h6 {
-  font-weight: 200 !important;
+  font-weight: 400 !important;
 }
 a {
     color: #171E0F;
     &.router-link-exact-active {
-      color: #42b983;
+      color: #DD7150 ;
     }
   }
 #nav {
-  background-color:#EDBB96;
-  box-shadow: 0px 0px 12px rgb(65, 54, 42);
+  background-color:rgb(255,255, 255);
+  box-shadow: 0px 0px 12px rgba(255, 255, 255, 0.7);
   a {
-    color: #2c3e50;
     &.router-link-exact-active {
-      color: #42b983;
+      color: #DD7150 ;
     }
   }
 }
@@ -136,16 +139,14 @@ a {
   outline: none !important;
 }
 .tagBtnPrimary {
-  border: 1px solid white !important;
-  border-radius: calc(0.7rem - 1px);
+  border: 1px solid transparent !important;
   background-color: #DD7150 !important;
   color: white !important;
 }
 .tagBtnSecondary {
-  border: 1px solid #DD7150 !important;
-  border-radius: calc(0.7rem - 1px);
-  background-color:white !important;
-  color: #DD7150 !important;
+  border: 1px solid #171E0F !important;
+  background-color: white !important;
+  color: #171E0F !important;
 }
 .tagBtnRemove {
   outline: none;
@@ -158,16 +159,15 @@ a {
   outline: none;
   width: 3rem;
   height: 3rem;
-  border: 1px solid #DD7150;
+  border: 1px solid #171E0F;
   background-color:white;
-  color: #DD7150;
+  color: #171E0F;
   border-radius: 50% !important;
   justify-content: center;
   align-items: center;
 }
 // shadow
 .tagShadow{
-  border-radius: calc(0.7rem - 1px);
   box-shadow: 0px 0px 3px rgb(65, 54, 42);
   transition: ease all .7s;
 }
@@ -175,19 +175,26 @@ a {
   box-shadow: 0px 0px 12px rgb(65, 54, 42);
   transition: ease all .7s;
 }
+.radius {
+  border-radius: calc(0.7rem - 1px); 
+}
 
 //home
 .homeCover {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 65vh;
   overflow: hidden;
   position: relative;
-  box-shadow: 0px 0px 3px rgb(65, 54, 42);
-  border-radius: calc(0.7rem - 1px); 
+}
+.carousel {
+    position: unset !important;
+}
+.homeCover .productImg {
+  width: 100% !important;
+  height: auto !important;
 }
 .MainCoverParag{
   margin: 0;
-  color: white;
   font-size: 30px;
 }
 .subCoverParag{
@@ -206,7 +213,7 @@ a {
 }
 // product
 .cardProductImg {
-  max-width: 100%;
+  width: 100%;
   height: 12rem;
   overflow: hidden;
   position: relative;
@@ -214,14 +221,9 @@ a {
 .productImg {
   max-width: 100%;
   height: auto;
-  border-radius: calc(0.7rem - 1px);
   transition: ease all .7s;
 }
 // productDetails
-.box {
-  width: 80%;
-  border-radius: calc(0.7rem - 1px);
-}
 .detailsbox {
   background-color: white;
 }
@@ -231,7 +233,7 @@ a {
   overflow: hidden;
   position: relative;
   box-shadow: 0px 0px 3px rgb(65, 54, 42);
-  border-radius: calc(0.7rem - 1px);
+ 
 }
 .activeProductImg:hover .productImg{
   -ms-transform: translateY(-15%);
@@ -251,7 +253,6 @@ a {
   height: 4rem;
   overflow: hidden;
   position: relative;
-  border-radius: calc(0.7rem - 1px);
   box-shadow: 0px 0px 3px rgb(65, 54, 42);
 }
 .sleepingProductImg:hover .productImg{
@@ -270,6 +271,10 @@ a {
   padding: 1rem;
 }
 //cart
+.cartItem {
+  height: 8rem;
+  background-image: linear-gradient(120deg,  rgba(236,201,209,0.8) 0%, rgba(221, 113, 80, 0.8) 100%);
+}
 .cartBody {
   border-top: 1px solid #171E0F;
   height: 40vh;

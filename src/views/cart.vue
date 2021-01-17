@@ -1,12 +1,12 @@
 <template>
   <div class="container">
-    <div class="row w-100 m-0 mb-5 tagShadow box detailsbox justify-content-center p-3">
+    <div class="row w-100 m-0 mb-5 p-3 tagShadow detailsbox justify-content-center radius">
         <!-- cart header -->
         <div class="cartHeader">
-            <h1>Your cart :</h1>
+            <h1>Order :</h1>
         </div>
         <!-- cart body -->
-        <div class="row m-0 mt-5 cartBody">
+        <div class="row m-0 mt-5 w-100 cartBody">
             <cartItem
             v-for="(cartItem,index) in cart"
             v-bind:cartItem="cartItem"
@@ -25,8 +25,8 @@
                 </div>
             </div>
             <div class="row m-0 w-100 pt-2 justify-content-end">
-                <button class="ml-2 px-2 py-1 tagBtn tagBtnSecondary tagShadow" @click="$router.go(-1)">Go Back</button>
-                <button class="ml-2 px-2 py-1 tagBtn tagBtnPrimary tagShadow" @click="updateTotal" >Checkout</button>
+                <button class="ml-2 px-2 py-1 tagBtn tagBtnSecondary tagShadow radius" @click="$router.go(-1)">Go Back</button>
+                <button class="ml-2 px-2 py-1 tagBtn tagBtnPrimary tagShadow radius" @click="updateTotal" >Checkout</button>
             </div>
         </div>
     </div>

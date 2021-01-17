@@ -1,11 +1,11 @@
 <template>
   <div class="container">
-    <div class="row w-100 m-0 mb-5 tagShadow box detailsbox justify-content-center p-3">
+    <div class="row w-100 m-0 mb-5 p-3 tagShadow box detailsbox justify-content-center radius">
       <!-- details images -->
       <div class="col-lg-5 col-md-6 col-sm-12 p-2">
-        <div class="d-flex flex-column w-100 box subDetailsBox imgsSubDetailsBox">
+        <div class="d-flex flex-column w-100 subDetailsBox imgsSubDetailsBox radius">
           <!-- active products image -->
-          <div :id="'imgBox' + currentProduct.imgsPath[0].id" class="tagShadow activeProductImg">
+          <div :id="'imgBox' + currentProduct.imgsPath[0].id" class="tagShadow activeProductImg radius">
             <img class="img-fluid productImg" id="pi4" :src="currentProduct.imgsPath[0].path"/>
           </div>
           <!-- sleeping products images -->
@@ -15,7 +15,7 @@
               v-bind:imgPath= imgPath
               v-bind:key= imgPath.id
               v-bind:index= index
-              v-on:click="toggleActiveImg" :id="'imgBox' + imgPath.id" class="sleepingProductImg">
+              v-on:click="toggleActiveImg" :id="'imgBox' + imgPath.id" class="sleepingProductImg radius">
               <img class="img-fluid productImg" :id="imgPath.id" :src="imgPath.path" />
             </div>
           </div>
@@ -49,7 +49,7 @@
           <!-- description -->
           <div class="col-lg-7 col-md-12 col-sm-12 p-2">
             <div class="d-flex w-100 box subDetailsBox infoSubDetailsBox">
-              <div class="tagShadow descriptionBox">
+              <div class="tagShadow descriptionBox radius">
                 <p>{{ currentProduct.description }}</p>
               </div>
             </div>
@@ -99,12 +99,13 @@
               </div>
               <!-- buttons -->
               <div class="row m-0 justify-content-end mt-5">
-                <button class="ml-2 tagBtn tagBtnSecondary tagShadow" style="width: 30%" @click="$router.go(-1)">Go Back</button>
+                <button class="ml-2 tagBtn tagBtnSecondary tagShadow radius" style="width: 30%" @click="$router.go(-1)">Go Back</button>
                 <button
                   v-if="ifPrdExistInCart(currentProduct)"
                   @click="removeItem(currentProduct)"
                   :name="'pdtBtn' + currentProduct.id"
-                  class="ml-2 tagBtn tagBtnSecondary tagShadow"
+                  class="ml-2 tagBtn tagBtnSecondary tagShadow radius"
+                  style="width: 30%"
                   >
                   Remove
                 </button>
@@ -112,7 +113,8 @@
                   v-else
                   :name="'pdtBtn' + currentProduct.id"
                   @click="addItem(currentProduct)"
-                  class="ml-2 tagBtn tagBtnPrimary tagShadow"
+                  class="ml-2 tagBtn tagBtnPrimary tagShadow radius"
+                  style="width: 30%"
                   >
                   Add to card
                 </button>

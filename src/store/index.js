@@ -3,6 +3,24 @@ import $ from "jquery";
 
 export default createStore({
   state: {
+    homeImgs: [
+      {
+        id:1,
+        Path: require('../assets/homeImgs/homeCoverImg1'+'.png')
+      },
+      {
+        id:2,
+        Path: require('../assets/homeImgs/homeCoverImg2'+'.png')
+      },
+      {
+        id:3,
+        Path: require('../assets/homeImgs/homeCoverImg3'+'.png')
+      },
+      {
+        id:4,
+        Path: require('../assets/homeImgs/homeCoverImg4'+'.png')
+      }
+    ],
     products: [
       {
         id: 1,
