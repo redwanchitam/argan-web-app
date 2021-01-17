@@ -273,7 +273,7 @@ a {
 //cart
 .cartItem {
   height: 8rem;
-  background-image: linear-gradient(120deg,  rgba(236,201,209,0.8) 0%, rgba(221, 113, 80, 0.8) 100%);
+  background-image: linear-gradient(120deg,  rgba(208, 100, 67, 0.8) 0%, rgb(208, 100, 67) 100%);
 }
 .cartBody {
   border-top: 1px solid #171E0F;

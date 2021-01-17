@@ -6,7 +6,7 @@
             <h1>Order :</h1>
         </div>
         <!-- cart body -->
-        <div class="row m-0 mt-5 w-100 cartBody">
+        <div class="row m-0 mt-2 w-100 cartBody">
             <cartItem
             v-for="(cartItem,index) in cart"
             v-bind:cartItem="cartItem"
@@ -16,18 +16,38 @@
         </div>
         <!-- cart footer -->
         <div class="row m-0 px-2 w-100 cartFooter">
+          <div class="col-lg-8 col-md-8 col-sm-12">
             <div class="row m-0 w-100 pt-2 justify-content-between">
                 <div class="">
-                    <h4 class="">Total :</h4>
+                    <h5 class="">subTotal :</h5>
                 </div>
                 <div class="">
-                    <h4 class="">{{ total }} $</h4>
+                    <h5 class="">{{ subTotal }} $</h5>
                 </div>
             </div>
-            <div class="row m-0 w-100 pt-2 justify-content-end">
+            <div class="row m-0 w-100 pt-2 justify-content-between">
+                <div class="">
+                    <h5 class="">Delivery :</h5>
+                </div>
+                <div class="">
+                    <h5 class="">{{ delivery }} $</h5>
+                </div>
+            </div>
+            <div class="row m-0 w-100 pt-2 justify-content-between">
+                <div class="">
+                    <h5 class="">Total :</h5>
+                </div>
+                <div class="">
+                    <h5 class="">{{ subTotal + delivery}} $</h5>
+                </div>
+            </div>
+          </div>
+          <div class="d-flex col-lg-4 col-md-4 col-sm-12">
+            <div class="row m-0 mt-auto w-100 pt-2 justify-content-end">
                 <button class="ml-2 px-2 py-1 tagBtn tagBtnSecondary tagShadow radius" @click="$router.go(-1)">Go Back</button>
                 <button class="ml-2 px-2 py-1 tagBtn tagBtnPrimary tagShadow radius" @click="updateTotal" >Checkout</button>
             </div>
+          </div>
         </div>
     </div>
   </div>
@@ -45,12 +65,16 @@ export default {
     cartItem
   },
   computed: {
-    total () {
-      var total = 0 ;
+    subTotal () {
+      var subTotal = 0 ;
       this.$store.state.cart.forEach(cartItem => {
-        total+= cartItem.product.price * cartItem.quantity;
+        subTotal+= cartItem.product.price * cartItem.quantity;
       });
-      return total;
+      return subTotal;
+    },
+    delivery () {
+      var delivery = 0 ;
+      return delivery;
     },
     cart () {
       return this.$store.state.cart
