@@ -13,10 +13,10 @@
                 <div class="col-lg-8 col-md-8 col-sm-12 p-0 w-100 ">
                     <div class="row m-0">
                         <div class="col-4 p-0 justify-content-center cartItemQuantity">
-                            <div class="d-flex align-items-center">
+                            <div class="d-flex align-items-center radius">
                                 <h6 tag="button" class="m-0 badge badge-dark tagBtn" @click="quantityDown(cartItem.product.id)"> - </h6>
                                 <input
-                                    class="w-100 mx-1 text-center"
+                                    class="w-100 mx-1 text-center tagInput"
                                     @change="itemTotal(cartItem.product.id)"
                                     :value="cartItem.quantity"
                                     :name="'itemQuantity' + cartItem.product.id" type="number">

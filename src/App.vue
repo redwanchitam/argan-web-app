@@ -92,9 +92,10 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kufam:wght@400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;400&family=Open+Sans:wght@300;400&display=swap');
 
 #app {
-  font-family: 'Sofia', cursive;
+  font-family: 'Nunito Sans', sans-serif;
   font-weight: 400;
   text-align: center;
   color: #171E0F;
@@ -166,6 +167,13 @@ a {
   justify-content: center;
   align-items: center;
 }
+
+//inputs
+.tagInput {
+  background: transparent;
+  border: none;
+}
+
 // shadow
 .tagShadow{
   box-shadow: 0px 0px 3px rgb(65, 54, 42);
@@ -273,7 +281,7 @@ a {
 //cart
 .cartItem {
   height: 8rem;
-  background-image: linear-gradient(120deg,  rgba(208, 100, 67, 0.8) 0%, rgb(208, 100, 67) 100%);
+  background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
 }
 .cartBody {
   border-top: 1px solid #171E0F;

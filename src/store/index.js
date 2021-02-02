@@ -163,6 +163,62 @@ export default createStore({
         description: "Documentation and examples for opting images into responsive behavior (so they never become larger than their parent elements) and add lightweight styles to them—all via classes."
       }
     ],
+    variants: [
+      {
+        id:1,
+        idProduct:1,
+        size: "30 ml",
+        color: "",
+        price: 85
+      },
+      {
+        id:2,
+        idProduct:1,
+        size: "60 ml",
+        color: "",
+        price: 150
+      },
+      {
+        id:3,
+        idProduct:2,
+        size: "250 ml",
+        color: "",
+        price: 75
+      },
+      {
+        id:4,
+        idProduct:2,
+        size: "500 ml",
+        color: "",
+        price: 140
+      },
+      {
+        id:5,
+        idProduct:2,
+        size: "1000 ml",
+        color: "",
+        price: 260
+      },
+      {
+        id:6,
+        idProduct:3,
+        size: "40 ml",
+        color: "",
+        price: 35
+      },{
+        id:7,
+        idProduct:3,
+        size: "70 ml",
+        color: "",
+        price: 60
+      },{
+        id:8,
+        idProduct:3,
+        size: "100 ml",
+        color: "",
+        price: 150
+      },
+    ],
     categories: [
       {
         id: 1,
