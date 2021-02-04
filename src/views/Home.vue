@@ -48,17 +48,34 @@
           </div>
         </div>
       </div>
+      <div class="row w-100 m-0 my-5 p-3 align-items-center">
+        <!-- TOP SELLING -->
+        <a class="nav-link">TOP SELLING</a>
+        <div class="d-flex topSellingBox">
+          <productCard
+            v-for="(product,index) in this.$store.state.products"
+            v-bind:product="product"
+            v-bind:key="product.id"
+            v-bind:index="index"
+          >
+          </productCard>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import productCard from "@/components/productCard.vue";
 import Store from "@/store/index.js";
 
 export default {
   store: Store,
   name: "Home",
+  components: {
+    productCard
+  },
   data: function () {
     return {
       homeImgs: this.$store.state.homeImgs

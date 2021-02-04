@@ -7,23 +7,24 @@
           <ul class="navbar-nav">
             <li class="nav-item active">
               <a class="nav-link">
-                <router-link to="/">Home</router-link>
+                <router-link to="/">الرئيسية</router-link>
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link">
-                <router-link to="/products">Products</router-link>
-              </a>
+            <li
+              v-for="category in this.$store.state.categories"
+              v-bind:key="category.id"
+              v-bind:category="category"
+              class="nav-item">
+                <a class="nav-link">
+                  <router-link
+                  :to="'/products/c/' + category.id">
+                  {{ category.name }}</router-link>
+                </a>
             </li>
             <li class="nav-item">
               <a class="nav-link">
-                <router-link to="/about">About</router-link>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link">
-                <router-link to="/contact">Contact Us</router-link>
+                <router-link to="/contact">تواصل معنا</router-link>
               </a>
             </li>
           </ul>
@@ -76,7 +77,6 @@ export default {
           $("#btnMenu").text("+")
           break;
         default:
-          console.log($("#btnMenu").text());
           break;
       }
     }

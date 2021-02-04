@@ -18,24 +18,10 @@
       </router-link>
       <div class="d-flex w-100 align-items-baseline justify-content-around">
         <a>{{ product.price }} $</a>
-        <!-- <small 
-          v-if="ifPrdExistInCart(product)"
-          :name="'pdtBtn' + product.id"
-          class="ml-auto px-2 py-1 tagBtn tagBtnSecondary tagShadow radius"
-          @click="removeItem(product)">
-            Remove
-        </small>
-        <small 
-          v-else
-          :name="'pdtBtn' + product.id"
-          class="ml-auto px-2 py-1 tagBtn tagBtnPrimary tagShadow radius"
-          @click="addItem(product)">
-            Add to Cart
-        </small> -->
         <small 
           class="ml-auto px-2 py-1 tagBtn tagBtnPrimary tagShadow radius"
           @click="showVariantsPopUp(product)">
-            Add to Cart
+            Check
         </small>
       </div>
       <div
@@ -54,24 +40,25 @@
             </div>
           </div>
           <div class="col-8">
-            <div class="row m-0 w-100 ">
-                <small class="">
-                  {{ variant.size }}
-                </small>
+            <div class="d-flex">
+              <a class=""> {{ variant.size }} </a>
             </div>
-            <div class="row m-0 mt-auto w-100">
-              <div class="col-6 p-0 justify-content-start">
-                <small class="">
-                    {{ variant.price }} $
-                </small>
-              </div>
-              <div class="col-6 p-0 justify-content-center">
-                <small 
-                  class="px-2 py-1 tagBtn tagBtnPrimary tagShadow radius"
-                  @click="addItem(product)">
-                     + 
-                </small>
-              </div>
+            <div class="d-flex justify-content-between align-items-end">
+              <a class=""> {{ variant.price }} $ </a>
+              <small 
+              v-if="ifPrdVarExistInCart(variant)"
+              :name="'pdtBtn' + variant.id"
+              class="px-2 tagBtn tagBtnSecondary tagShadow radius"
+              @click="removeItem(variant)">
+                 - 
+              </small>
+              <small 
+                v-else
+                :name="'pdtBtn' + variant.id"
+                class="px-2 tagBtn tagBtnPrimary tagShadow radius"
+                @click="addItem(variant)">
+                   + 
+              </small>
             </div>
           </div>
         </div>
@@ -92,23 +79,19 @@ export default {
   methods: {
     showVariantsPopUp: function(product) {
       $("div[name='variantsPopUp"+ product.id +"']").toggleClass( "variantsPopUpShow" );
-      // var variants = this.$store.state.variants.filter(variant => variant.idProduct == product.id);
-      // variants.forEach(variant => {
-      //   $("div[name='variantsPopUp"+ product.id +"']").toggleClass( "variantsPopUpShow" );
-      // });
     },
-    ifPrdExistInCart : function(product) {
-      if (this.$store.state.cart.find(cartItem => cartItem.product.id === product.id) === undefined){
+    ifPrdVarExistInCart : function(productVariant) {
+      if (this.$store.state.cart.find(cartItem => cartItem.productVariant.id === productVariant.id) === undefined){
         return false;
       }else{
         return true;
       }
     },
-    removeItem : function(product) {
-      this.$store.commit("removeItem",product.id);
+    removeItem : function(productVariant) {
+      this.$store.commit("removeItem",productVariant.id);
     },
-    addItem : function(product) {
-      this.$store.commit("addItem",product);
+    addItem : function(productVariant) {
+      this.$store.commit("addItem",productVariant);
     }
   },
   props: ["product"]
@@ -119,11 +102,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .productCard {
-  background-image: linear-gradient(to top, #dfd2c1 0%, #deecdd 100%);
+  background-color: #FFFFFF;
   position: relative;
 }
 .variantsPopUp {
-  background-image: linear-gradient(to top, #dfd2c1 0%, #deecdd 100%);
+  background-color: #FFFFFF;
   position: absolute;
   overflow: hidden;
   width: 100%;
@@ -139,7 +122,6 @@ export default {
   height: auto;
 }
 .variantPopUpItem {
-  width: 100%;
   height: fit-content;
 }
 .variantImg {

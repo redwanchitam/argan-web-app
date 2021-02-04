@@ -22,6 +22,7 @@ export default createStore({
       }
     ],
     products: [
+      // ARGAN
       {
         id: 1,
         imgsPath: [
@@ -42,10 +43,10 @@ export default createStore({
             path: require('../assets/productsImages/productImg4'+'.png')
           },
         ],
-        name: "Product 1",
+        name: "بشرة",
         price: 13,
         rating: "80",
-        category: "category 1",
+        categoryId: 1,
         mainOrgans: ["argan"],
         deliveries: ["morroco", "usa", "germany"],
         description: "Documentation and examples for opting images into responsive behavior (so they never become larger than their parent elements) and add lightweight styles to them—all via classes."
@@ -70,11 +71,11 @@ export default createStore({
             path: require('../assets/productsImages/productImg5'+'.png')
           },
         ],
-        name: "Product 2",
+        name: "شعر",
         price: 17,
         rating: "80",
-        category: "category 2",
-        mainOrgans: ["argan", "Almonds"],
+        categoryId: 1,
+        mainOrgans: ["argan"],
         deliveries: ["morroco", "china", "england"],
         description: "Documentation and examples for opting images into responsive behavior (so they never become larger than their parent elements) and add lightweight styles to them—all via classes."
       },
@@ -98,11 +99,11 @@ export default createStore({
             path: require('../assets/productsImages/productImg1'+'.png')
           },
         ],
-        name: "Product 3",
+        name: "تدليك",
         price: 15,
         rating: "80",
-        category: "category 3",
-        mainOrgans: ["olive"],
+        categoryId: 1,
+        mainOrgans: ["argan"],
         deliveries: ["morroco", "mexico", "middle east"],
         description: "Documentation and examples for opting images into responsive behavior (so they never become larger than their parent elements) and add lightweight styles to them—all via classes."
       },
@@ -126,14 +127,15 @@ export default createStore({
             path: require('../assets/productsImages/productImg2'+'.png')
           },
         ],
-        name: "Product 4",
+        name: "أكل",
         price: 14,
         rating: "80",
-        category: "category 4",
-        mainOrgans: ["olive"],
+        categoryId: 1,
+        mainOrgans: ["argan"],
         deliveries: ["morroco", "mexico", "middle east"],
         description: "Documentation and examples for opting images into responsive behavior (so they never become larger than their parent elements) and add lightweight styles to them—all via classes."
       },
+      // AMLOU
       {
         id: 5,
         imgsPath: [
@@ -154,14 +156,184 @@ export default createStore({
             path: require('../assets/productsImages/productImg3'+'.png')
           },
         ],
-        name: "Product 5",
-        price: 21,
+        name: "أملو - لوز",
+        price: 29,
         rating: "80",
-        category: "category 5",
-        mainOrgans: ["olive"],
+        categoryId: 2,
+        mainOrgans: ["almonds","argan"],
         deliveries: ["morroco", "mexico", "middle east"],
         description: "Documentation and examples for opting images into responsive behavior (so they never become larger than their parent elements) and add lightweight styles to them—all via classes."
-      }
+      },
+      {
+        id: 6,
+        imgsPath: [
+          { 
+            id: 5,
+            path: require('../assets/productsImages/productImg5'+'.png')
+          },
+          { 
+            id: 1,
+            path: require('../assets/productsImages/productImg1'+'.png')
+          },
+          { 
+            id: 2,
+            path: require('../assets/productsImages/productImg2'+'.png')
+          },
+          { 
+            id: 3,
+            path: require('../assets/productsImages/productImg3'+'.png')
+          },
+        ],
+        name: "أملو - كاوكاو",
+        price: 21,
+        rating: "80",
+        categoryId: 2,
+        mainOrgans: ["Peanuts","argan"],
+        deliveries: ["morroco", "mexico", "middle east"],
+        description: "Documentation and examples for opting images into responsive behavior (so they never become larger than their parent elements) and add lightweight styles to them—all via classes."
+      },
+      // HONEY
+      {
+        id: 7,
+        imgsPath: [
+          { 
+            id: 5,
+            path: require('../assets/productsImages/productImg5'+'.png')
+          },
+          { 
+            id: 1,
+            path: require('../assets/productsImages/productImg1'+'.png')
+          },
+          { 
+            id: 2,
+            path: require('../assets/productsImages/productImg2'+'.png')
+          },
+          { 
+            id: 3,
+            path: require('../assets/productsImages/productImg3'+'.png')
+          },
+        ],
+        name: "عسل - دغموس",
+        price: 51,
+        rating: "80",
+        categoryId: 3,
+        mainOrgans: ["HONEY"],
+        deliveries: ["morroco", "mexico", "middle east"],
+        description: "Documentation and examples for opting images into responsive behavior (so they never become larger than their parent elements) and add lightweight styles to them—all via classes."
+      },
+      {
+        id: 8,
+        imgsPath: [
+          { 
+            id: 5,
+            path: require('../assets/productsImages/productImg5'+'.png')
+          },
+          { 
+            id: 1,
+            path: require('../assets/productsImages/productImg1'+'.png')
+          },
+          { 
+            id: 2,
+            path: require('../assets/productsImages/productImg2'+'.png')
+          },
+          { 
+            id: 3,
+            path: require('../assets/productsImages/productImg3'+'.png')
+          },
+        ],
+        name: "عسل - أعشاب",
+        price: 49,
+        rating: "80",
+        categoryId: 3,
+        mainOrgans: ["HONEY"],
+        deliveries: ["morroco", "mexico", "middle east"],
+        description: "Documentation and examples for opting images into responsive behavior (so they never become larger than their parent elements) and add lightweight styles to them—all via classes."
+      },
+      {
+        id: 9,
+        imgsPath: [
+          { 
+            id: 5,
+            path: require('../assets/productsImages/productImg5'+'.png')
+          },
+          { 
+            id: 1,
+            path: require('../assets/productsImages/productImg1'+'.png')
+          },
+          { 
+            id: 2,
+            path: require('../assets/productsImages/productImg2'+'.png')
+          },
+          { 
+            id: 3,
+            path: require('../assets/productsImages/productImg3'+'.png')
+          },
+        ],
+        name: "عسل - زعتر",
+        price: 50,
+        rating: "80",
+        categoryId: 3,
+        mainOrgans: ["honey"],
+        deliveries: ["morroco", "mexico", "middle east"],
+        description: "Documentation and examples for opting images into responsive behavior (so they never become larger than their parent elements) and add lightweight styles to them—all via classes."
+      },
+      // MARGARINE
+      {
+        id: 10,
+        imgsPath: [
+          { 
+            id: 5,
+            path: require('../assets/productsImages/productImg5'+'.png')
+          },
+          { 
+            id: 1,
+            path: require('../assets/productsImages/productImg1'+'.png')
+          },
+          { 
+            id: 2,
+            path: require('../assets/productsImages/productImg2'+'.png')
+          },
+          { 
+            id: 3,
+            path: require('../assets/productsImages/productImg3'+'.png')
+          },
+        ],
+        name: "سمن - بقر",
+        price: 49,
+        rating: "80",
+        categoryId: 4,
+        mainOrgans: ["margarine"],
+        deliveries: ["morroco", "mexico", "middle east"],
+        description: "Documentation and examples for opting images into responsive behavior (so they never become larger than their parent elements) and add lightweight styles to them—all via classes."
+      },
+      {
+        id: 11,
+        imgsPath: [
+          { 
+            id: 5,
+            path: require('../assets/productsImages/productImg5'+'.png')
+          },
+          { 
+            id: 1,
+            path: require('../assets/productsImages/productImg1'+'.png')
+          },
+          { 
+            id: 2,
+            path: require('../assets/productsImages/productImg2'+'.png')
+          },
+          { 
+            id: 3,
+            path: require('../assets/productsImages/productImg3'+'.png')
+          },
+        ],
+        name: "سمن - ماعز",
+        price: 49,
+        rating: "80",
+        categoryId: 4,
+        mainOrgans: ["margarine"],
+        deliveries: ["morroco", "mexico", "middle east"],
+        description: "Documentation and examples for opting images into responsive behavior (so they never become larger than their parent elements) and add lightweight styles to them—all via classes."
+      },
     ],
     variants: [
       {
@@ -222,52 +394,52 @@ export default createStore({
     categories: [
       {
         id: 1,
-        name: "FACE"
+        name: "أركان"
       },
       {
         id: 2,
-        name: "BODY"
+        name: "أملو"
       },
       {
         id: 3,
-        name: "HAIR"
+        name: "عسل"
       },
       {
         id: 4,
-        name: "MASSAGE"
+        name: "سمن"
       },
       {
         id: 5,
-        name: "FEEDING"
+        name: "عناية شخصية"
       }
     ],
     cart: [],
   },
   mutations: {
-    removeItem (state,productId) {
+    removeItem (state,productVariantId) {
       try{
-        var itemToRemove = state.cart.find(cartItem => cartItem.product.id === productId);
+        var itemToRemove = state.cart.find(cartItem => cartItem.productVariant.id === productVariantId);
         state.cart.splice( state.cart.indexOf(itemToRemove),1);
-        $("small[name='pdtBtn"+ productId+"']").html("Add to Cart");
-        $("small[name='pdtBtn"+ productId +"']").removeClass("tagBtnSecondary");
-        $("small[name='pdtBtn"+ productId+"']").addClass("tagBtnPrimary");
+        $("small[name='pdtBtn"+ productVariantId+"']").html(" + ");
+        $("small[name='pdtBtn"+ productVariantId +"']").removeClass("tagBtnSecondary");
+        $("small[name='pdtBtn"+ productVariantId+"']").addClass("tagBtnPrimary");
       }catch{
-        alert("adding product failed");
+        alert("removing product failed");
       }
     },
-    addItem (state,product) {
+    addItem (state,productVariant) {
       try {
         state.cart.push(
           {
-            product: product,
+            productVariant: productVariant,
             quantity: 1
           }
         );
-        $("small[name='pdtBtn"+ product.id +"']").html("Remove");
-        $("small[name='pdtBtn"+ product.id +"']").removeClass("tagBtnPrimary");
-        $("small[name='pdtBtn"+ product.id +"']").addClass("tagBtnSecondary");
+        $("small[name='pdtBtn"+ productVariant.id +"']").html(" - ");
+        $("small[name='pdtBtn"+ productVariant.id +"']").removeClass("tagBtnPrimary");
+        $("small[name='pdtBtn"+ productVariant.id +"']").addClass("tagBtnSecondary");
       }catch{
-        alert("removing product failed");
+        alert("adding product failed");
       }
     },
     updateQuantity (state,{productId,updatedQuantity}){
