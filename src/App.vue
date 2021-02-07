@@ -1,8 +1,8 @@
 <template>
-  <div class="d-flex p-0">
-    <nav class="p-5 tagNav" id="nav">
+  <div class="w-100 d-flex p-0">
+    <nav class="pt-5 px-3 tagNav" id="nav">
       <router-link class="mb-5 navbar-brand logo" to="/" >Arganica</router-link>
-      <div class="d-flex justify-content-center">
+      <div class="mb-5 d-flex justify-content-center">
         <!-- <small 
           id="btnMenu"
           @click="toggleMenu"
@@ -10,13 +10,14 @@
           type="button" data-toggle="collapse" data-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">+
         </small> -->
-        <small 
+        <button
+          tag="button"
           id="btnMenu"
           @click="ShowMenu"
           class="navbar-toggler tagBtn tagBtnMenu tagShadow"
           type="button" data-toggle="collapse" data-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">+
-        </small>
+        </button>
       </div>
       <div class="d-flex justify-content-center collapse navbar-collapse" id="navbarNavBox">
         <div class="" id="navbarNav">
@@ -47,10 +48,9 @@
         </div>
       </div>
     </nav>
-    <div class="d-flex flex-column">
-      <nav class="mb-5 ml-auto justify-content-between align-items-start navbar">
-        <!-- Links -->
-        <div class="navbar-nav">
+    <div class="d-flex flex-column mainContent ">
+      <nav class="d-flex flex-column mb-2 navbar">
+        <div class="d-flex ml-auto navbar-nav">
           <div class="nav-item form-inline">
             <div class="topnav">
               <div class="tagShadow radius search-container">
@@ -74,7 +74,11 @@
             </router-link>
           </div>
         </div>
-
+        <div class="d-flex py-1 px-3 justify-content-center radius pubBox">
+          <p>
+            here will be some publicity
+          </p>
+        </div>
       </nav>
       <router-view />
     </div>
@@ -178,8 +182,15 @@ a {
 a:hover {
   color: #293F33;
 }
+button {
+  outline: 0 !important;
+}
+input {
+  outline: 0 !important;
+}
 .tagNav {
   a {
+      text-align: justify;
       color: #FCE9E2 ;
     &.router-link-exact-active {
       color: #D87556 ;
@@ -195,7 +206,7 @@ a:hover{
 }
 .tagNav {
   height: 100vh;
-  width: fit-content;
+  width: 20%;
   position: sticky;
   z-index: 1;
   top: 0;
@@ -207,6 +218,15 @@ a:hover{
 }
 .logo {
   color: #D87556 !important;
+}
+.pubBox {
+    width: 100%;
+    height: 9rem;
+    margin-top: 1.25rem;
+    border: 1px solid #13291D ;
+}
+.mainContent {
+  width: 80%;
 }
 // inputs
 .tagInputSearch {

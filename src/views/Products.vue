@@ -17,7 +17,7 @@
             </a>
           </ul>
         </div> -->
-        <h3 class="m-2 text-left">take a look on our {{ currentCategory.name }} products :</h3>
+        <h3 class="m-2 text-left">Take a look on our {{ currentCategory.name }} products :</h3>
         <div class="row m-0 justify-content-start productsByCategBox">
           <productCard
             v-for="(product,index) in productsByCategory"
