@@ -2,8 +2,8 @@
   <div class="container">
     <div class="products">
       
-      <!-- CATEGORIES -->
       <div class="mt-5">
+        <!-- CATEGORIES -->
         <!-- <div class="row m-0 justify-content-center">
           <ul class="p-0 d-flex w-100 navCateg justify-content-around">
             <a
@@ -17,7 +17,8 @@
             </a>
           </ul>
         </div> -->
-        <div class="row m-0 justify-content-center productsByCategBox">
+        <h3 class="m-2 text-left">take a look on our {{ currentCategory.name }} products :</h3>
+        <div class="row m-0 justify-content-start productsByCategBox">
           <productCard
             v-for="(product,index) in productsByCategory"
             v-bind:product="product"
@@ -36,6 +37,9 @@ import productCard from "@/components/productCard.vue";
 import Store from "@/store/index.js";
 export default {
   computed: {
+    currentCategory () {
+      return this.$store.state.categories.find(category => category.id == this.$route.params.id)
+    },
     productsByCategory () {
       return this.$store.state.products.filter(product => product.categoryId == this.$route.params.id)
     }

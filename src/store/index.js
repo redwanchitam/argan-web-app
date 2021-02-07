@@ -394,23 +394,23 @@ export default createStore({
     categories: [
       {
         id: 1,
-        name: "أركان"
+        name: "Argan"
       },
       {
         id: 2,
-        name: "أملو"
+        name: "Amlou"
       },
       {
         id: 3,
-        name: "عسل"
+        name: "Honey"
       },
       {
         id: 4,
-        name: "سمن"
+        name: "Margarine"
       },
       {
         id: 5,
-        name: "عناية شخصية"
+        name: "Personal care"
       }
     ],
     cart: [],
@@ -442,9 +442,9 @@ export default createStore({
         alert("adding product failed");
       }
     },
-    updateQuantity (state,{productId,updatedQuantity}){
+    updateQuantity (state,{productVariantId,updatedQuantity}){
       try {  
-        var currentCartItem = state.cart.find(cartItem => cartItem.product.id === productId);
+        var currentCartItem = state.cart.find(cartItem => cartItem.productVariant.id === productVariantId);
         currentCartItem.quantity = updatedQuantity;
       } catch (error) {
         alert("updating quantity failed");

@@ -1,6 +1,6 @@
 <template>
   <div class="col-lg-3 col-md-4 col-6 p-0">
-    <div class="p-2 m-2 mb-4 tagShadow productCard radius">
+    <div @mouseleave="hideVariantsPopUp(product)" class="p-2 m-2 mb-4 tagShadow productCard radius">
       <router-link :to="'/products/p/' + product.id">
         <div class="cardProductImg radius">
           <img class="img-fluid productImg" v-bind:src="product.imgsPath[0].path"/>
@@ -20,11 +20,12 @@
         <a>{{ product.price }} $</a>
         <small 
           class="ml-auto px-2 py-1 tagBtn tagBtnPrimary tagShadow radius"
-          @click="showVariantsPopUp(product)">
+          @click="toggleVariantsPopUp(product)">
             Check
         </small>
       </div>
       <div
+        @mouseleave="hideVariantsPopUp(product)"
         :name="'variantsPopUp' + product.id"
         class="variantsPopUp tagShadow radius">
         
@@ -43,7 +44,7 @@
             <div class="d-flex">
               <a class=""> {{ variant.size }} </a>
             </div>
-            <div class="d-flex justify-content-between align-items-end">
+            <div class="d-flex justify-content-between align-items-baseline">
               <a class=""> {{ variant.price }} $ </a>
               <small 
               v-if="ifPrdVarExistInCart(variant)"
@@ -78,6 +79,12 @@ export default {
   },
   methods: {
     showVariantsPopUp: function(product) {
+      $("div[name='variantsPopUp"+ product.id +"']").addClass( "variantsPopUpShow" );
+    },
+    hideVariantsPopUp: function(product) {
+      $("div[name='variantsPopUp"+ product.id +"']").removeClass( "variantsPopUpShow" );
+    },
+    toggleVariantsPopUp: function(product) {
       $("div[name='variantsPopUp"+ product.id +"']").toggleClass( "variantsPopUpShow" );
     },
     ifPrdVarExistInCart : function(productVariant) {
@@ -109,24 +116,23 @@ export default {
   background-color: #FFFFFF;
   position: absolute;
   overflow: hidden;
-  width: 100%;
+  width: 130%;
   height: 0rem;
-  left: 10%;
+  left: 5%;
   bottom: 20%;
   z-index: 1;
   transition: ease-in-out all .7s;
-  // display: none;
 }
 .variantsPopUpShow {
   transition: ease-in-out all .7s;
-  height: auto;
+  height: fit-content;
 }
 .variantPopUpItem {
   height: fit-content;
 }
 .variantImg {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 2.5rem;
   overflow: hidden;
   position: relative;
 }

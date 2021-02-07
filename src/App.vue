@@ -1,13 +1,29 @@
 <template>
-  <div class="tagNav sticky-top p-0 mb-5" id="nav">
-    <nav class="justify-content-between align-items-start navbar navbar-expand-lg">
-      <router-link class="navbar-brand" to="/" >Arganica</router-link>
-      <div class="d-flex flex-row" id="navbarNavBox">
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
+  <div class="d-flex p-0">
+    <nav class="p-5 tagNav" id="nav">
+      <router-link class="mb-5 navbar-brand logo" to="/" >Arganica</router-link>
+      <div class="d-flex justify-content-center">
+        <!-- <small 
+          id="btnMenu"
+          @click="toggleMenu"
+          class="navbar-toggler tagBtn tagBtnMenu tagShadow"
+          type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">+
+        </small> -->
+        <small 
+          id="btnMenu"
+          @click="ShowMenu"
+          class="navbar-toggler tagBtn tagBtnMenu tagShadow"
+          type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">+
+        </small>
+      </div>
+      <div class="d-flex justify-content-center collapse navbar-collapse" id="navbarNavBox">
+        <div class="" id="navbarNav">
+          <ul class="navbar-nav align-items-start">
             <li class="nav-item active">
               <a class="nav-link">
-                <router-link to="/">الرئيسية</router-link>
+                <router-link to="/">Home</router-link>
                 <span class="sr-only">(current)</span>
               </a>
             </li>
@@ -24,33 +40,45 @@
             </li>
             <li class="nav-item">
               <a class="nav-link">
-                <router-link to="/contact">تواصل معنا</router-link>
+                <router-link to="/contact">Contact Us</router-link>
               </a>
             </li>
           </ul>
         </div>
       </div>
-      <div class="d-flex flex-row">
-        <button 
-          id="btnMenu"
-          @click="toggleMenu"
-          class="navbar-toggler tagBtn tagBtnMenu tagShadow"
-          type="button" data-toggle="collapse" data-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">+
-        </button>
-        <router-link to="/user/8/cart" >
-          <button class="ml-2 tagBtn tagBtnMenu tagBtnPrimary tagShadow" type="button">
-              <small>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-                  <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                </svg>({{ count }})
-              </small>
-          </button>
-        </router-link>
-      </div>
     </nav>
+    <div class="d-flex flex-column">
+      <nav class="mb-5 ml-auto justify-content-between align-items-start navbar">
+        <!-- Links -->
+        <div class="navbar-nav">
+          <div class="nav-item form-inline">
+            <div class="topnav">
+              <div class="tagShadow radius search-container">
+                <form class="form-inline" action="/action_page.php">
+                  <input class="tagInputSearch radius" type="text" placeholder="Search.." name="search">
+                  <button class="tagBtnSearch radius" type="submit"><i class="fa fa-search"></i></button>
+                </form>
+              </div>
+            </div>
+            <router-link to="/user/8/cart" >
+              <button class="ml-2 tagBtn tagBtnMenu tagBtnPrimary tagShadow" type="button">
+                  <small>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                      <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                    </svg>({{ count }})
+                  </small>
+              </button>
+            </router-link>
+            <router-link to="/user/8/profil" >
+              <button class="ml-2 tagBtn tagBtnMenu tagBtnPrimary tagShadow" type="button">A</button>
+            </router-link>
+          </div>
+        </div>
+
+      </nav>
+      <router-view />
+    </div>
   </div>
-  <router-view />
 </template>
 
 <script>
@@ -64,21 +92,13 @@ export default {
     }
   },
   methods: {
-    toggleMenu : function() {
-      switch ($("#btnMenu").text()) {
-        case '+':
-          console.log("menu on");
-          $("#navbarNavBox").css({"height": " 50vh", "align-items": "center"});
-          $("#btnMenu").text("-")
-          break;
-        case "-":
-          console.log("menu off");
-          $("#navbarNavBox").css({"height": " inset", "align-items": "inset"});
-          $("#btnMenu").text("+")
-          break;
-        default:
-          break;
-      }
+    showMenu : function() {
+      $("#navbarNavBox").css({"height": " 50vh", "align-items": "center"});
+      $(".btnMenu").html("-");
+    },
+    hideMenu : function() {
+      $("#navbarNavBox").css({"height": " inset", "align-items": "inset"});
+      $(".btnMenu").html("+");
     }
   }
 };
@@ -94,11 +114,45 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;400&family=Open+Sans:wght@300;400&display=swap');
 
+.search-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  height: 3rem;
+  font-size: 17px;
+  border: none;
+}
+
+
+.topnav .search-container button:hover {
+  background: #D87556;
+  transition: ease-in-out all .7s;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+}
+
+body {
+  background-color:#FCE9E2 ;
+  color: #13291D;
+}
 #app {
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 400;
   text-align: center;
-  color: #171E0F;
 }
 .h1 {
   font-weight: 400 !important;
@@ -119,25 +173,68 @@ export default {
   font-weight: 400 !important;
 }
 a {
-    color: #171E0F;
-    &.router-link-exact-active {
-      color: #DD7150 ;
-    }
-  }
-#nav {
-  background-color:rgb(255,255, 255);
-  box-shadow: 0px 0px 12px rgba(255, 255, 255, 0.7);
+  color: #13291D;
+}
+a:hover {
+  color: #293F33;
+}
+.tagNav {
   a {
+      color: #FCE9E2 ;
     &.router-link-exact-active {
-      color: #DD7150 ;
+      color: #D87556 ;
     }
   }
+  a:hover {
+    color: #DD9D7F ;
+  }
+}
+a:hover{
+  color: #e6957d ;
+  text-decoration: none;
+}
+.tagNav {
+  height: 100vh;
+  width: fit-content;
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #13291D;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+.logo {
+  color: #D87556 !important;
+}
+// inputs
+.tagInputSearch {
+  border-top-right-radius: unset !important;
+  border-bottom-right-radius: unset !important;
 }
 // buttons
 .tagBtn {
   cursor: pointer;
   transition: ease-in-out all .7s;
   outline: none !important;
+}
+.tagBtnSearch {
+  float: right;
+  padding: 6px 10px;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  width: 3rem;
+  height: 3rem;
+  border-top-left-radius: unset !important;
+  border-bottom-left-radius: unset !important;
+  background: #DD9D7F;
+  transition: ease-in-out all .7s;
+}
+.tagBtnSearch:hover {
+  background: #D87556;
+  transition: ease-in-out all .7s;
 }
 .tagBtnPrimary {
   border: 1px solid transparent !important;

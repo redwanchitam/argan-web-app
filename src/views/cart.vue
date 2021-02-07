@@ -10,7 +10,7 @@
             <cartItem
             v-for="(cartItem,index) in cart"
             v-bind:cartItem="cartItem"
-            v-bind:key="cartItem.product.id"
+            v-bind:key="cartItem.productVariant.id"
             v-bind:index="index">
             </cartItem>
         </div>
@@ -68,7 +68,7 @@ export default {
     subTotal () {
       var subTotal = 0 ;
       this.$store.state.cart.forEach(cartItem => {
-        subTotal+= cartItem.product.price * cartItem.quantity;
+        subTotal+= cartItem.productVariant.price * cartItem.quantity;
       });
       return subTotal;
     },

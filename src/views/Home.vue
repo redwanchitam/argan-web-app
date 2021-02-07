@@ -49,6 +49,19 @@
         </div>
       </div>
       <div class="row w-100 m-0 my-5 p-3 align-items-center">
+        <!--RECENT -->
+        <a class="nav-link">RECENT</a>
+        <div class="d-flex topSellingBox">
+          <productCard
+            v-for="(product,index) in this.$store.state.products"
+            v-bind:product="product"
+            v-bind:key="product.id"
+            v-bind:index="index"
+          >
+          </productCard>
+        </div>
+      </div>
+      <div class="row w-100 m-0 my-5 p-3 align-items-center">
         <!-- TOP SELLING -->
         <a class="nav-link">TOP SELLING</a>
         <div class="d-flex topSellingBox">
