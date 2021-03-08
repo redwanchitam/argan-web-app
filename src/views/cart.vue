@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="row w-100 m-0 mb-5 p-3 tagShadow detailsbox justify-content-center radius">
+  <div class="">
+    <div class="row w-100 m-0 mt-5 mb-5 p-3 tagShadow detailsbox justify-content-center radius">
         <!-- cart header -->
         <div class="cartHeader">
             <h1>Order :</h1>

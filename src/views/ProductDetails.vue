@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="row w-100 m-0 mb-5 p-3 tagShadow box detailsbox justify-content-center radius">
+  <div class="">
+    <div class="row w-100 m-0 mt-5  mb-5 p-3 tagShadow box detailsbox justify-content-center radius">
       <!-- details images -->
       <div class="col-lg-5 col-md-6 col-sm-12 p-2">
         <div class="d-flex flex-column w-100 subDetailsBox imgsSubDetailsBox radius">
@@ -40,7 +40,7 @@
                     <div class="unitRating unitRatingOn"></div>
                     <div class="unitRating unitRatingOff"></div>
                   </div>
-                  <h4 class="productInfosItem ml-auto">{{ currentProduct.price }} $</h4>
+                  <h4 class="productInfosItem ml-auto">from {{ minPrice(currentProduct) }} $</h4>
                 </div>
               </div>
 
@@ -101,7 +101,7 @@
               <div class="row m-0 justify-content-end mt-5">
                 <button class="ml-2 tagBtn tagBtnSecondary tagShadow radius" style="width: 30%" @click="$router.go(-1)">Go Back</button>
                 <button
-                  v-if="ifPrdExistInCart(currentProduct)"
+                  v-if="ifPrdVarExistInCart(currentProduct)"
                   @click="removeItem(currentProduct)"
                   :name="'pdtBtn' + currentProduct.id"
                   class="ml-2 tagBtn tagBtnSecondary tagShadow radius"
@@ -112,12 +112,56 @@
                 <button
                   v-else
                   :name="'pdtBtn' + currentProduct.id"
-                  @click="addItem(currentProduct)"
                   class="ml-2 tagBtn tagBtnPrimary tagShadow radius"
                   style="width: 30%"
-                  >
-                  Add to card
+                  @click="toggleVariantsPopUp(currentProduct)">
+                    Check
                 </button>
+                <div
+                    @mouseleave="hideVariantsPopUp(currentProduct)"
+                    :name="'variantsPopUp' + currentProduct.id"
+                    class="variantsPopUp tagShadow radius">
+                    <div
+                    v-for="(variant,index) in $store.state.variants.filter(variant => variant.idProduct == currentProduct.id)"
+                    v-bind:variant= variant
+                    v-bind:key= variant.id
+                    v-bind:index= index
+                    class="row mx-2 my-1 py-2 variantPopUpItem">
+                      <div class="col-4">
+                        <div class="variantImg radius">
+                          <img class="img-fluid productImg" v-bind:src="currentProduct.imgsPath[0].path"/>
+                        </div>
+                      </div>
+                      <div class="col-8">
+                        <div class="d-flex text-left">
+                          <small class=""> {{ variant.size }} 
+                            <small 
+                              v-for="(extraO,index) in variant.extraOrgan"
+                              v-bind:extraO= extraO
+                              v-bind:key= extraO
+                              v-bind:index= index> +{{ extraO }}</small> 
+                          </small>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-baseline">
+                          <small class=""> {{ variant.price }} $ </small>
+                          <small 
+                          v-if="ifPrdVarExistInCart(variant)"
+                          :name="'pdtBtn' + variant.id"
+                          class="px-2 tagBtn tagBtnSecondary tagShadow radius"
+                          @click="removeItem(variant)">
+                            - 
+                          </small>
+                          <small 
+                            v-else
+                            :name="'pdtBtn' + variant.id"
+                            class="px-2 tagBtn tagBtnPrimary tagShadow radius"
+                            @click="addItem(variant)">
+                              + 
+                          </small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
               </div>
             </div>
           </div>
@@ -141,7 +185,28 @@ export default {
     }
   },
   methods: {
-    ifPrdExistInCart : function(productVariant) {
+    minPrice: function (product) {
+      var variants = this.$store.state.variants.filter(variant => variant.idProduct == product.id);
+      var prices = [];
+      console.log(variants.length);
+      if (variants.length<1) {
+        return product.price;
+      }
+      variants.forEach(variant => {
+        prices.push(variant.price);
+      });
+      return Math.min(...prices);
+    },
+    showVariantsPopUp: function(product) {
+      $("div[name='variantsPopUp"+ product.id +"']").addClass( "variantsPopUpShow" );
+    },
+    hideVariantsPopUp: function(product) {
+      $("div[name='variantsPopUp"+ product.id +"']").removeClass( "variantsPopUpShow" );
+    },
+    toggleVariantsPopUp: function(product) {
+      $("div[name='variantsPopUp"+ product.id +"']").toggleClass( "variantsPopUpShow" );
+    },
+    ifPrdVarExistInCart : function(productVariant) {
       if (this.$store.state.cart.find(cartItem => cartItem.productVariant.id === productVariant.id) === undefined){
         return false;
       }else{

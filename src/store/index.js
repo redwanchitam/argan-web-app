@@ -339,6 +339,7 @@ export default createStore({
       {
         id:1,
         idProduct:1,
+        extraOrgan: [],
         size: "30 ml",
         color: "",
         price: 85
@@ -346,49 +347,194 @@ export default createStore({
       {
         id:2,
         idProduct:1,
+        extraOrgan: [],
         size: "60 ml",
         color: "",
         price: 150
       },
       {
         id:3,
-        idProduct:2,
-        size: "250 ml",
+        idProduct:1,
+        extraOrgan: [],
+        size: "100 ml",
         color: "",
         price: 75
       },
       {
         id:4,
         idProduct:2,
-        size: "500 ml",
+        extraOrgan: [],
+        size: "30 ml",
         color: "",
         price: 140
       },
       {
         id:5,
         idProduct:2,
-        size: "1000 ml",
+        extraOrgan: [],
+        size: "60 ml",
         color: "",
         price: 260
       },
       {
         id:6,
-        idProduct:3,
-        size: "40 ml",
+        idProduct:2,
+        extraOrgan: [],
+        size: "100 ml",
         color: "",
         price: 35
-      },{
+      },
+      {
         id:7,
         idProduct:3,
-        size: "70 ml",
+        extraOrgan: [],
+        size: "30 ml",
         color: "",
         price: 60
-      },{
+      },
+      {
         id:8,
         idProduct:3,
+        extraOrgan: [],
+        size: "60 ml",
+        color: "",
+        price: 100
+      },
+      {
+        id:9,
+        idProduct:3,
+        extraOrgan: [],
         size: "100 ml",
         color: "",
         price: 150
+      },
+      {
+        id:10,
+        idProduct:4,
+        extraOrgan: [],
+        size: "500 ml",
+        color: "",
+        price: 150
+      },
+      {
+        id:11,
+        idProduct:4,
+        extraOrgan: [],
+        size: "1000 ml",
+        color: "",
+        price: 290
+      },
+      {
+        id:12,
+        idProduct:5,
+        extraOrgan: [],
+        size: "500 g",
+        color: "",
+        price: 180
+      },
+      {
+        id:13,
+        idProduct:5,
+        extraOrgan: ["honey"],
+        size: "1000 g",
+        color: "",
+        price: 350
+      },
+      {
+        id:14,
+        idProduct:6,
+        extraOrgan: [],
+        size: "500 g",
+        color: "",
+        price: 140
+      },
+      {
+        id:15,
+        idProduct:6,
+        extraOrgan: ["honey"],
+        size: "1000 g",
+        color: "",
+        price: 260
+      },
+      {
+        id:16,
+        idProduct:7,
+        extraOrgan: [],
+        size: "500 g",
+        color: "",
+        price: 120
+      },
+      {
+        id:17,
+        idProduct:7,
+        extraOrgan: [],
+        size: "1000 g",
+        color: "",
+        price: 230
+      },
+      {
+        id:18,
+        idProduct:8,
+        extraOrgan: [],
+        size: "500 g",
+        color: "",
+        price: 145
+      },
+      {
+        id:19,
+        idProduct:8,
+        extraOrgan: [],
+        size: "1000 g",
+        color: "",
+        price: 280
+      },
+      {
+        id:20,
+        idProduct:9,
+        extraOrgan: [],
+        size: "500 g",
+        color: "",
+        price: 170
+      },
+      {
+        id:21,
+        idProduct:9,
+        extraOrgan: [],
+        size: "1000 g",
+        color: "",
+        price: 320
+      },
+      {
+        id:22,
+        idProduct:10,
+        extraOrgan: [],
+        size: "500 g",
+        color: "",
+        price: 80
+      },
+      {
+        id:23,
+        idProduct:10,
+        extraOrgan: [],
+        size: "1000 g",
+        color: "",
+        price: 150
+      },
+      {
+        id:24,
+        idProduct:11,
+        extraOrgan: [],
+        size: "100 g",
+        color: "",
+        price: 65
+      },
+      {
+        id:25,
+        idProduct:11,
+        extraOrgan: [],
+        size: "250 g",
+        color: "",
+        price: 120
       },
     ],
     categories: [

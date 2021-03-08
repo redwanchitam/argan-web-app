@@ -1,7 +1,10 @@
 <template>
   <div class="w-100 d-flex p-0">
     <div class="w-100 d-flex flex-column">
-      <div class="px-5 py-2 searhBar radius">
+      <div class="container d-flex align-items-baseline py-2 searhBar radius justify-content-between">
+        <router-link to="/" >
+          <h5 class="logo">Argania</h5>
+        </router-link>
         <form class="form-inline justify-content-center" action="">
           <input class="tagInputSearch radius" type="text" placeholder="Search.." name="search">
           <button class="tagBtnPrimary tagBtnSearch radius" type="submit"><i class="fa fa-search"  style='color:white'></i></button>
@@ -13,7 +16,7 @@
       <!-- Footer Nav-->
       <div class="footer" id="footerNav">
         <div class="container h-100 px-0">
-          <div class="suha-footer-nav h-100">
+          <div class="h-100">
             <ul class="h-100 px-5 d-flex align-items-center justify-content-between ps-0">
               <li class="active">
                 <router-link to="/" >
@@ -26,15 +29,20 @@
                 </router-link>
               </li>
               <li>
-                <router-link to="/user/8/cart" >
+                <router-link to="/cart" >
                   <a alt="cart"><i class="fas fa-shopping-cart"></i>({{ count }})</a>
                 </router-link>
               </li>
               <li>
-                <router-link to="/" >
+                <router-link to="/profile" >
                   <a alt="profile"><i class="fas fa-user-alt"></i></a>
                 </router-link>
-                </li>
+              </li>
+              <li>
+                <router-link to="/contact" >
+                  <a alt="contact us"><i class="fa fa-paper-plane"></i></a>
+                </router-link>
+              </li>
             </ul>
           </div>
         </div>
@@ -173,7 +181,8 @@ ul li {
   border-top-right-radius: unset !important;
   border-bottom-right-radius: unset !important;
   height: 2.5rem;
-  border: none
+  border: none;
+  padding: 0.75rem;
 }
 // buttons
 .tagBtn {
@@ -331,6 +340,32 @@ ul li {
   justify-self: start;
   padding: 1rem;
 }
+//variants
+.variantsPopUp {
+  background-color: #FFFFFF;
+  position: absolute;
+  overflow: hidden;
+  width: 104%;
+  height: 0rem;
+  left: -2%;
+  bottom: 20%;
+  z-index: 1;
+  transition: ease-in-out all .7s;
+}
+.variantsPopUpShow {
+  transition: ease-in-out all .7s;
+  height: fit-content;
+}
+.variantPopUpItem {
+  height: fit-content;
+}
+.variantImg {
+  width: auto;
+  height: 2.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
 //cart
 .cartItem {
   height: 8rem;
@@ -356,5 +391,8 @@ ul li {
   left: 0;
   right: 0;
   z-index: 1000;
+  border-radius: calc(2rem - 1px); 
+  border-bottom-left-radius: unset !important;
+  border-bottom-right-radius: unset !important;
 }
 </style>

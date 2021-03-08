@@ -1,10 +1,10 @@
 <template>
-  <div class="container">
-      <div class="row m-0 py-1 px-3 justify-content-center radius pubBox">
+  <div class="">
+      <!-- <div class="row m-0 py-1 px-3 justify-content-center radius pubBox">
           <p>
             here will be some publicity
           </p>
-      </div>
+      </div> -->
     <div class="products">
       
       <div class="mt-5">

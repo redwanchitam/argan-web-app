@@ -5,8 +5,8 @@
             here will be some publicity
           </p>
       </div> -->
-    <div class="about">
-      <h1>This is Contact page</h1>
+    <div class="profile">
+      <h1>This is Profile page</h1>
     </div>
   </div>
 </template>

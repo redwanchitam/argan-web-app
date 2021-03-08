@@ -17,7 +17,7 @@
         </div>
       </router-link>
       <div class="d-flex w-100 align-items-baseline justify-content-around">
-        <a>{{ product.price }} $</a>
+        <a>from {{ minPrice(product) }} $</a>
         <small 
           class="ml-auto px-2 py-1 tagBtn tagBtnPrimary tagShadow radius"
           @click="toggleVariantsPopUp(product)">
@@ -41,11 +41,17 @@
             </div>
           </div>
           <div class="col-8">
-            <div class="d-flex">
-              <a class=""> {{ variant.size }} </a>
+            <div class="d-flex text-left">
+              <small class=""> {{ variant.size }} 
+                <small 
+                  v-for="(extraO,index) in variant.extraOrgan"
+                  v-bind:extraO= extraO
+                  v-bind:key= extraO
+                  v-bind:index= index> +{{ extraO }}</small> 
+              </small>
             </div>
             <div class="d-flex justify-content-between align-items-baseline">
-              <a class=""> {{ variant.price }} $ </a>
+              <small class=""> {{ variant.price }} $ </small>
               <small 
               v-if="ifPrdVarExistInCart(variant)"
               :name="'pdtBtn' + variant.id"
@@ -63,8 +69,6 @@
             </div>
           </div>
         </div>
-
-        
       </div>
     </div>
   </div>
@@ -78,6 +82,18 @@ export default {
   computed: {
   },
   methods: {
+    minPrice: function (product) {
+      var variants = this.$store.state.variants.filter(variant => variant.idProduct == product.id);
+      var prices = [];
+      console.log(variants.length);
+      if (variants.length<1) {
+        return product.price;
+      }
+      variants.forEach(variant => {
+        prices.push(variant.price);
+      });
+      return Math.min(...prices);
+    },
     showVariantsPopUp: function(product) {
       $("div[name='variantsPopUp"+ product.id +"']").addClass( "variantsPopUpShow" );
     },
@@ -110,30 +126,6 @@ export default {
 <style scoped lang="scss">
 .productCard {
   background-color: #FFFFFF;
-  position: relative;
-}
-.variantsPopUp {
-  background-color: #FFFFFF;
-  position: absolute;
-  overflow: hidden;
-  width: 130%;
-  height: 0rem;
-  left: 5%;
-  bottom: 20%;
-  z-index: 1;
-  transition: ease-in-out all .7s;
-}
-.variantsPopUpShow {
-  transition: ease-in-out all .7s;
-  height: fit-content;
-}
-.variantPopUpItem {
-  height: fit-content;
-}
-.variantImg {
-  width: auto;
-  height: 2.5rem;
-  overflow: hidden;
   position: relative;
 }
 </style>
