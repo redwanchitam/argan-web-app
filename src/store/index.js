@@ -43,7 +43,7 @@ export default createStore({
             path: require('../assets/productsImages/productImg4'+'.png')
           },
         ],
-        name: "بشرة",
+        name: "Skin",
         price: 13,
         rating: "80",
         categoryId: 1,
@@ -71,7 +71,7 @@ export default createStore({
             path: require('../assets/productsImages/productImg5'+'.png')
           },
         ],
-        name: "شعر",
+        name: "Hair",
         price: 17,
         rating: "80",
         categoryId: 1,
@@ -99,7 +99,7 @@ export default createStore({
             path: require('../assets/productsImages/productImg1'+'.png')
           },
         ],
-        name: "تدليك",
+        name: "Massage",
         price: 15,
         rating: "80",
         categoryId: 1,
@@ -127,7 +127,7 @@ export default createStore({
             path: require('../assets/productsImages/productImg2'+'.png')
           },
         ],
-        name: "أكل",
+        name: "Nutrition",
         price: 14,
         rating: "80",
         categoryId: 1,
@@ -156,7 +156,7 @@ export default createStore({
             path: require('../assets/productsImages/productImg3'+'.png')
           },
         ],
-        name: "أملو - لوز",
+        name: "Amolu - Almonds",
         price: 29,
         rating: "80",
         categoryId: 2,
@@ -184,7 +184,7 @@ export default createStore({
             path: require('../assets/productsImages/productImg3'+'.png')
           },
         ],
-        name: "أملو - كاوكاو",
+        name: "Amlou - Peanuts",
         price: 21,
         rating: "80",
         categoryId: 2,
@@ -213,7 +213,7 @@ export default createStore({
             path: require('../assets/productsImages/productImg3'+'.png')
           },
         ],
-        name: "عسل - دغموس",
+        name: "Honey - Daghmous",
         price: 51,
         rating: "80",
         categoryId: 3,
@@ -241,7 +241,7 @@ export default createStore({
             path: require('../assets/productsImages/productImg3'+'.png')
           },
         ],
-        name: "عسل - أعشاب",
+        name: "Honey - Herbs",
         price: 49,
         rating: "80",
         categoryId: 3,
@@ -269,7 +269,7 @@ export default createStore({
             path: require('../assets/productsImages/productImg3'+'.png')
           },
         ],
-        name: "عسل - زعتر",
+        name: "Honey - Thyme",
         price: 50,
         rating: "80",
         categoryId: 3,
@@ -298,7 +298,7 @@ export default createStore({
             path: require('../assets/productsImages/productImg3'+'.png')
           },
         ],
-        name: "سمن - بقر",
+        name: "Margarine - Cow",
         price: 49,
         rating: "80",
         categoryId: 4,
@@ -326,7 +326,7 @@ export default createStore({
             path: require('../assets/productsImages/productImg3'+'.png')
           },
         ],
-        name: "سمن - ماعز",
+        name: "Margarine - Goat",
         price: 49,
         rating: "80",
         categoryId: 4,

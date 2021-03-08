@@ -1,23 +1,28 @@
 <template>
   <div class="container">
+      <div class="row m-0 py-1 px-3 justify-content-center radius pubBox">
+          <p>
+            here will be some publicity
+          </p>
+      </div>
     <div class="products">
       
       <div class="mt-5">
         <!-- CATEGORIES -->
-        <!-- <div class="row m-0 justify-content-center">
-          <ul class="p-0 d-flex w-100 navCateg justify-content-around">
-            <a
+        <h3 class="m-2 text-left"> Categories :</h3>
+        <div class="row m-0 justify-content-center">
+          <ul class="p-0 m-0 row w-100 navCateg justify-content-around">
+            <router-link :to="'/products/c/'+category.id"
               v-for="category in this.$store.state.categories"
               v-bind:key="category.id"
               v-bind:category="category"
-              class="nav-item"
-              href="#"
+              class="col-6 p-2 justify-content-center"
             >
-              {{ category.name }}
-            </a>
+              <span class="py-3 w-100 text-center badge badge-dark" style="font-size : 1rem">{{ category.name }}</span>
+            </router-link>
           </ul>
-        </div> -->
-        <h3 class="m-2 text-left">Take a look on our {{ currentCategory.name }} products :</h3>
+        </div>
+        <h3 class="m-2 text-left">{{ currentCategory.name }} products :</h3>
         <div class="row m-0 justify-content-start productsByCategBox">
           <productCard
             v-for="(product,index) in productsByCategory"

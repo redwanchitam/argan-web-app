@@ -141,8 +141,8 @@ export default {
     }
   },
   methods: {
-    ifPrdExistInCart : function(product) {
-      if (this.$store.state.cart.find(cartItem => cartItem.product.id === product.id) === undefined){
+    ifPrdExistInCart : function(productVariant) {
+      if (this.$store.state.cart.find(cartItem => cartItem.productVariant.id === productVariant.id) === undefined){
         return false;
       }else{
         return true;

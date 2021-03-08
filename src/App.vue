@@ -1,86 +1,44 @@
 <template>
   <div class="w-100 d-flex p-0">
-    <nav class="pt-5 px-3 tagNav" id="nav">
-      <router-link class="mb-5 navbar-brand logo" to="/" >Arganica</router-link>
-      <div class="mb-5 d-flex justify-content-center">
-        <!-- <small 
-          id="btnMenu"
-          @click="toggleMenu"
-          class="navbar-toggler tagBtn tagBtnMenu tagShadow"
-          type="button" data-toggle="collapse" data-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">+
-        </small> -->
-        <button
-          tag="button"
-          id="btnMenu"
-          @click="ShowMenu"
-          class="navbar-toggler tagBtn tagBtnMenu tagShadow"
-          type="button" data-toggle="collapse" data-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">+
-        </button>
+    <div class="w-100 d-flex flex-column">
+      <div class="px-5 py-2 searhBar radius">
+        <form class="form-inline justify-content-center" action="">
+          <input class="tagInputSearch radius" type="text" placeholder="Search.." name="search">
+          <button class="tagBtnPrimary tagBtnSearch radius" type="submit"><i class="fa fa-search"  style='color:white'></i></button>
+        </form>
       </div>
-      <div class="d-flex justify-content-center collapse navbar-collapse" id="navbarNavBox">
-        <div class="" id="navbarNav">
-          <ul class="navbar-nav align-items-start">
-            <li class="nav-item active">
-              <a class="nav-link">
-                <router-link to="/">Home</router-link>
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li
-              v-for="category in this.$store.state.categories"
-              v-bind:key="category.id"
-              v-bind:category="category"
-              class="nav-item">
-                <a class="nav-link">
-                  <router-link
-                  :to="'/products/c/' + category.id">
-                  {{ category.name }}</router-link>
-                </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link">
-                <router-link to="/contact">Contact Us</router-link>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <div class="d-flex flex-column mainContent ">
-      <nav class="d-flex flex-column mb-2 navbar">
-        <div class="d-flex ml-auto navbar-nav">
-          <div class="nav-item form-inline">
-            <div class="topnav">
-              <div class="tagShadow radius search-container">
-                <form class="form-inline" action="/action_page.php">
-                  <input class="tagInputSearch radius" type="text" placeholder="Search.." name="search">
-                  <button class="tagBtnSearch radius" type="submit"><i class="fa fa-search"></i></button>
-                </form>
-              </div>
-            </div>
-            <router-link to="/user/8/cart" >
-              <button class="ml-2 tagBtn tagBtnMenu tagBtnPrimary tagShadow" type="button">
-                  <small>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-                      <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                    </svg>({{ count }})
-                  </small>
-              </button>
-            </router-link>
-            <router-link to="/user/8/profil" >
-              <button class="ml-2 tagBtn tagBtnMenu tagBtnPrimary tagShadow" type="button">A</button>
-            </router-link>
+      <router-view class="mainContent" />
+      <!-- Internet Connection Status-->
+      <div class="internet-connection-status" id="internetStatus"></div>
+      <!-- Footer Nav-->
+      <div class="footer" id="footerNav">
+        <div class="container h-100 px-0">
+          <div class="suha-footer-nav h-100">
+            <ul class="h-100 px-5 d-flex align-items-center justify-content-between ps-0">
+              <li class="active">
+                <router-link to="/" >
+                  <a alt="home"><i class="fas fa-store-alt"></i></a>
+                </router-link>
+              </li>
+              <li>
+                <router-link to="/products/c/1">
+                  <a alt="products"><i class="fas fa-vials"></i></a>
+                </router-link>
+              </li>
+              <li>
+                <router-link to="/user/8/cart" >
+                  <a alt="cart"><i class="fas fa-shopping-cart"></i>({{ count }})</a>
+                </router-link>
+              </li>
+              <li>
+                <router-link to="/" >
+                  <a alt="profile"><i class="fas fa-user-alt"></i></a>
+                </router-link>
+                </li>
+            </ul>
           </div>
         </div>
-        <div class="d-flex py-1 px-3 justify-content-center radius pubBox">
-          <p>
-            here will be some publicity
-          </p>
-        </div>
-      </nav>
-      <router-view />
+      </div>
     </div>
   </div>
 </template>
@@ -97,12 +55,14 @@ export default {
   },
   methods: {
     showMenu : function() {
-      $("#navbarNavBox").css({"height": " 50vh", "align-items": "center"});
-      $(".btnMenu").html("-");
+      $(".tagNav").css({"width": "20rem"});
+      // $("#navbarNavBox").css({"height": " 50vh", "align-items": "center"});
+      $(".btnMenu").text("-");
     },
     hideMenu : function() {
-      $("#navbarNavBox").css({"height": " inset", "align-items": "inset"});
-      $(".btnMenu").html("+");
+      $(".tagNav").css({"width": "5rem"});
+      // $("#navbarNavBox").css({"height": " inset", "align-items": "inset"});
+      $(".btnMenu").value("+");
     }
   }
 };
@@ -188,50 +148,32 @@ button {
 input {
   outline: 0 !important;
 }
-.tagNav {
-  a {
-      text-align: justify;
-      color: #FCE9E2 ;
-    &.router-link-exact-active {
-      color: #D87556 ;
-    }
-  }
-  a:hover {
-    color: #DD9D7F ;
-  }
-}
 a:hover{
   color: #e6957d ;
   text-decoration: none;
 }
-.tagNav {
-  height: 100vh;
-  width: 20%;
-  position: sticky;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #13291D;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
+ul li {
+    list-style: none;
+    text-decoration: none;
 }
 .logo {
   color: #D87556 !important;
 }
 .pubBox {
-    width: 100%;
-    height: 9rem;
-    margin-top: 1.25rem;
-    border: 1px solid #13291D ;
+  width: 100%;
+  height: 9rem;
+  margin-top: 1.25rem;
+  border: 1px solid #13291D ;
 }
 .mainContent {
-  width: 80%;
+  margin-bottom: 58px; 
 }
 // inputs
 .tagInputSearch {
   border-top-right-radius: unset !important;
   border-bottom-right-radius: unset !important;
+  height: 2.5rem;
+  border: none
 }
 // buttons
 .tagBtn {
@@ -242,19 +184,13 @@ a:hover{
 .tagBtnSearch {
   float: right;
   padding: 6px 10px;
-  font-size: 17px;
+  font-size: 15px;
   border: none;
   cursor: pointer;
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-top-left-radius: unset !important;
   border-bottom-left-radius: unset !important;
-  background: #DD9D7F;
-  transition: ease-in-out all .7s;
-}
-.tagBtnSearch:hover {
-  background: #D87556;
-  transition: ease-in-out all .7s;
 }
 .tagBtnPrimary {
   border: 1px solid transparent !important;
@@ -402,10 +338,23 @@ a:hover{
 }
 .cartBody {
   border-top: 1px solid #171E0F;
-  height: 40vh;
+  height: 50vh;
   overflow-y: scroll;
 }
 .cartFooter{
   border-top: 1px solid #171E0F;
+}
+
+//footer
+.footer {
+  transition-duration: 500ms;
+  background-color: #ffffff;
+  width: 100%;
+  height: 58px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 </style>
